@@ -1,12 +1,12 @@
 %!TEX program = xelatex
 
 \input{Head}
-\title{简单粗暴\LaTeX\ }
+\title{簡單粗暴\LaTeX\ }
 \author{K.L Wu\\
-  {\kaishu 本手册是\href{https://github.com/wklchris/Note-by-LaTeX}{wklchris-GitHub}的\LaTeX{}-cn项目}
+  {\kaishu 本手冊是\href{https://github.com/wklchris/Note-by-LaTeX}{wklchris-GitHub}的\LaTeX{}-cn項目}
 }
-\date{当前版本号：v1.6.4-pre\\
-  最后更新于：\today}
+\date{當前版本號：v1.6.4-pre\\
+  最後更新於：\today}
 
 \begin{document}
 
@@ -20,26 +20,26 @@
 
 \noindent{\Huge\xinwei 第一稿序}\dpar\dpar
 
-其实在之前我是有一稿手册的，开始撰写的日期大概在2015年4月．但是自己觉得写得太烂，因此索性推倒重写了这一版．这一版的主要特征是：
+其實在之前我是有一稿手冊的，開始撰寫的日期大概在2015年4月．但是自己覺得寫得太爛，因此索性推倒重寫了這一版．這一版的主要特徵是：
 \begin{feae}
-  \item 我希望能够吸引初学者快速上手，解决手头的问题．因此去掉了枯燥的讲解和无穷无尽的宏包用法介绍，直接使用实例；
-  \item 力求突出实用性．当然，也会提点一些可以深入学习的内容，读者可以自行查阅，或者阅读本手册中的扩展阅读章节（即带星号*的章节）．
-  \item 本手册使用的编辑器为\TeX\ Studio，而非之前的商业软件WinEdt. 这使得学习\LaTeX\ 的门槛更低．当然了，你有权使用任何编辑器．
+  \item 我希望能夠吸引初學者快速上手，解決手頭的問題．因此去掉了枯燥的講解和無窮無盡的宏包用法介紹，直接使用實例；
+  \item 力求突出實用性．當然，也會提點一些可以深入學習的內容，讀者可以自行查閲，或者閲讀本手冊中的擴展閲讀章節（即帶星號*的章節）．
+  \item 本手冊使用的編輯器為\TeX\ Studio，而非之前的商業軟件WinEdt. 這使得學習\LaTeX\ 的門檻更低．當然了，你有權使用任何編輯器．
 \end{feae}
 
-手册主体分为六大部分\cite{LHY2013latex,lamport1994latex,frank2004latex,partl2016,Casteleyn2016tikz,tikzmanual}：
+手冊主體分為六大部分\cite{LHY2013latex,lamport1994latex,frank2004latex,partl2016,Casteleyn2016tikz,tikzmanual}：
 \begin{fead}
-\item[写给读者*] 介绍\LaTeX\ 背景、优缺点、适用情形．
-\item[基础] 包括标点、缩进、距离、章节、字体、颜色、注释、引用、封面、目录、列表、图表、页面等详细内容．
-\item[数学排版] 包括数学符号、公式、编号等内容．
-\item[进阶] 主要是自定义命令，帮助你更高效、更简洁地书写你的文档．
-\item[\tikzz\  绘图*] 附加章节，需要读者取消注释后重编译．
-\item[附录] 帮助你快速查找一些你想要的东西．
+\item[寫給讀者*] 介紹\LaTeX\ 背景、優缺點、適用情形．
+\item[基礎] 包括標點、縮進、距離、章節、字體、顏色、註釋、引用、封面、目錄、列表、圖表、頁面等詳細內容．
+\item[數學排版] 包括數學符號、公式、編號等內容．
+\item[進階] 主要是自定義命令，幫助你更高效、更簡潔地書寫你的文檔．
+\item[\tikzz\  繪圖*] 附加章節，需要讀者取消註釋後重編譯．
+\item[附錄] 幫助你快速查找一些你想要的東西．
 \end{fead}
 
-由于工作全部由我一人完成，限于视野，难免存在错漏之处．恳请读者指正．如遇到的手册中无法解决的问题，欢迎向我提出．推荐书目可参考本手册附录．
+由於工作全部由我一人完成，限於視野，難免存在錯漏之處．懇請讀者指正．如遇到的手冊中無法解決的問題，歡迎向我提出．推薦書目可參考本手冊附錄．
 
-最后，还要感谢在\LaTeX\ 学习中为我解答疑惑的同学，特别是来自\LaTeX\ 度吧的吧友；本手册中许多的解决方案都是由他们提供的．我谨在此记录．
+最後，還要感謝在\LaTeX\ 學習中為我解答疑惑的同學，特別是來自\LaTeX\ 度吧的吧友；本手冊中許多的解決方案都是由他們提供的．我謹在此記錄．
 
 \vfill
 
@@ -48,12 +48,12 @@ Mail: wklchris@hotmail.com\dpar
 
 Chris Wu
 
-September 17, 2016 于Davis, CA
+September 17, 2016 於Davis, CA
 \end{flushright}
 \clearpage
-\noindent{\Huge\xinwei 更新日志：}\dpar\dpar
+\noindent{\Huge\xinwei 更新日誌：}\dpar\dpar
 
-版本号以 $x.y.z$ 的形式公示．当$z=0$时，为决定正式 release 的版本．
+版本號以 $x.y.z$ 的形式公示．當$z=0$時，為決定正式 release 的版本．
 
 v1.6.0 更新 --- 2017年6月15日：
 
@@ -63,44 +63,44 @@ v1.6.2 更新 --- 2017年10月5-15日．
 
 v1.6.3 更新 --- 2018年3月22日．\dpar
 
-以下内容中，未以括号注明的项是在v1.6.0中更新的．
+以下內容中，未以括號註明的項是在v1.6.0中更新的．
 
 \begin{feai}
 \item 重要更新：
   \begin{feai}
-  \item \textbf{\sout{\tikzz\  相关的内容停止更新}．原因是现有的其他软件绘图功能强大，导出为 pdf 格式的矢量图后也易于调用；\tikzz\  相比之下学习成本过高．}\textcolor{red}{\textbf{笔者又决定重启\tikzz\ 章节}}．（v1.6.3）
-  \item \textbf{重新添加了 \tikzz\  章节} —— 不过仍是之前弃笔时的版本，预计将于 v1.7 更新．
-  \item \textbf{增加了加快\xelatex 调用字体速度的方式}．参考“中文支持与CJK字体”一节\texttt{fc-cache}相关内容．（v1.6.1）
+  \item \textbf{\sout{\tikzz\  相關的內容停止更新}．原因是現有的其他軟件繪圖功能強大，導出為 pdf 格式的矢量圖後也易於調用；\tikzz\  相比之下學習成本過高．}\textcolor{red}{\textbf{筆者又決定重啓\tikzz\ 章節}}．（v1.6.3）
+  \item \textbf{重新添加了 \tikzz\  章節} —— 不過仍是之前棄筆時的版本，預計將於 v1.7 更新．
+  \item \textbf{增加了加快\xelatex 調用字體速度的方式}．參考“中文支持與CJK字體”一節\texttt{fc-cache}相關內容．（v1.6.1）
   \end{feai}
-\item 字体更换：思源宋体．
-\item 编辑了 Head.tex 文件，使之更易阅读．
-\item [添加]宏包\pkg{animate}：在 PDF 中展示动态图．（v1.6.1）
+\item 字體更換：思源宋體．
+\item 編輯了 Head.tex 文件，使之更易閲讀．
+\item [添加]宏包\pkg{animate}：在 PDF 中展示動態圖．（v1.6.1）
 \item [添加]宏包\pkg{tocbibind}：
   \begin{feai}
-  \item 将目录本身编入目录项．
-  \item 将参考文献章节编号、编入目录项．
-  \item 将索引章节编号、编入目录项．
+  \item 將目錄本身編入目錄項．
+  \item 將參考文獻章節編號、編入目錄項．
+  \item 將索引章節編號、編入目錄項．
   \end{feai}
-\item [更新]宏包\pkg{dcolumn}，更详细说明了如何在表格中使用小数点对齐．（v1.6.2）
-\item [更新]宏包\pkg{fancyvbr}：更详细说明了抄录环境\envi{BVerbatim}，如何提供居中支持．（v1.6.2）
+\item [更新]宏包\pkg{dcolumn}，更詳細説明了如何在表格中使用小數點對齊．（v1.6.2）
+\item [更新]宏包\pkg{fancyvbr}：更詳細説明了抄錄環境\envi{BVerbatim}，如何提供居中支持．（v1.6.2）
 \item [更新]宏包\pkg{xeCJK}：
   \begin{feai}
-  \item 参数 CJKspace．该功能在新版宏包中已修复．
-  \item 命令 \latexline{setCJKmainfont}，可指定字体文件名．
+  \item 參數 CJKspace．該功能在新版宏包中已修復．
+  \item 命令 \latexline{setCJKmainfont}，可指定字體文件名．
   \end{feai}
-\item 数学内容：
+\item 數學內容：
   \begin{feai}
-  \item [添加]宏包\pkg{extarrows}：长等号命令．
-  \item [添加]命令\latexline{numberthis}，用于给多行公式中的某行编号．(v1.6.2)
-  \item [添加]命令\latexline{allowdisplaybreaks}，用于支持多行公式环境换页．
+  \item [添加]宏包\pkg{extarrows}：長等號命令．
+  \item [添加]命令\latexline{numberthis}，用於給多行公式中的某行編號．(v1.6.2)
+  \item [添加]命令\latexline{allowdisplaybreaks}，用於支持多行公式環境換頁．
   \end{feai}
-\item 拆分了文档，并修改了“文档拆分”一节的内容．（v1.6.3）
-\item 修复了一些错别字与无效的文档内跳转链接．
+\item 拆分了文檔，並修改了“文檔拆分”一節的內容．（v1.6.3）
+\item 修復了一些錯別字與無效的文檔內跳轉鏈接．
 \end{feai}
 
 \mbox{}
 
-更早版本的更新细节，请到\href{https://github.com/wklchris/Note-by-LaTeX/releases}{Project Release Webpage}浏览．
+更早版本的更新細節，請到\href{https://github.com/wklchris/Note-by-LaTeX/releases}{Project Release Webpage}瀏覽．
 
 % Main Contents
 
@@ -112,25 +112,25 @@ v1.6.3 更新 --- 2018年3月22日．\dpar
 
 % Appendices
 
-% 参考文献
+% 參考文獻
 \bibliography{Bib}
 
-% 附录
+% 附錄
 \clearpage
 \appendix
-% 重定义附录的chapter样式
+% 重定義附錄的chapter樣式
 \renewcommand{\chaformat}[1]{%
-	\parbox[b]{.5\textwidth}{\raggedleft\bfseries \S 附录 \\ \vspace{0.2ex} #1} \quad\rule[-12pt]{2pt}{70pt}\quad
+	\parbox[b]{.5\textwidth}{\raggedleft\bfseries \S 附錄 \\ \vspace{0.2ex} #1} \quad\rule[-12pt]{2pt}{70pt}\quad
 	{\fontsize{60}{60}\selectfont\thechapter}}
 
-\chapter{注音符号}
+\chapter{注音符號}
 \label{app:phonetic}
-% 这里不用>{\ttfamily}而用\verb是为了减少报错可能
+% 這裏不用>{\ttfamily}而用\verb是為了減少報錯可能
 \begin{center}
-\tabcaption{注音符号与特殊符号}
+\tabcaption{注音符號與特殊符號}
 \begin{tabular}{|*{4}{>{\centering}p{3em} @{-\hspace{1em}} p{3em}|}}
 \hline
-\texttt{样式} & 命令 & \texttt{样式} & 命令 & \texttt{样式} & 命令 & \texttt{样式} & 命令 \\
+\texttt{樣式} & 命令 & \texttt{樣式} & 命令 & \texttt{樣式} & 命令 & \texttt{樣式} & 命令 \\
 \hline
 \=o  & \verb|\=o|  & \'o  & \verb|\'o|  & \v o & \verb|\v o|  & \`o   & \verb|\`o|  \\
 \^o  & \verb|\^o|  & \"o  & \verb|\"o|  & \.o  & \verb|\.o|   & \H o  & \verb|\H{o}| \\
@@ -148,10 +148,10 @@ v1.6.3 更新 --- 2018年3月22日．\dpar
 \mbox{}
 
 \begin{center}
-\tabcaption{国际音标输入表（部分）}
+\tabcaption{國際音標輸入表（部分）}
 \begin{tabular}{|*{3}{>{\rmfamily}c !{-} >{\ttfamily}p{7.5em}|}}
 \hline
-\texttt{样式} & 命令 & \texttt{样式} & 命令 & \texttt{样式} & 命令 \\
+\texttt{樣式} & 命令 & \texttt{樣式} & 命令 & \texttt{樣式} & 命令 \\
 \hline
 \textdzlig & \char92textdzlig & \textesh & \char92textesh & \textteshlig & \char92textteshlig \\
 \textdyoghlig & \char92textdyoghlig & \textturnv & \char92textturnv & \textschwa & \char92textschwa \\
@@ -159,32 +159,32 @@ v1.6.3 更新 --- 2018年3月22日．\dpar
 \textscripta & \char92textscripta & \dh & \char92dh & \textepsilon & \char92textepsilon \\
 \textopeno & \char92textopeno & \textyogh & \char92textyogh & \ng & \char92ng \\
 \hline
-\multicolumn{2}{|c|}{重音} & \multicolumn{2}{c|}{次重音} & \multicolumn{2}{c|}{长音节} \\
+\multicolumn{2}{|c|}{重音} & \multicolumn{2}{c|}{次重音} & \multicolumn{2}{c|}{長音節} \\
 \textprimstress & \char92{}textprimstress & \textsecstress & \char92textsecstress & \textlengthmark & \char92textlengthmark \\
 \hline
 \end{tabular}
 \end{center}
 
-\textit{注：\texttt{\char92dh}命令在非CJK文档中有时编译会出现问题}．
+\textit{注：\texttt{\char92dh}命令在非CJK文檔中有時編譯會出現問題}．
 
-\chapter{建议与其他}
+\chapter{建議與其他}
 
-除了参考文献列表中给出的书籍以外，我还推荐你用控制台在\TeX{} Live中能找到的以下书籍：
+除了參考文獻列表中給出的書籍以外，我還推薦你用控制枱在\TeX{} Live中能找到的以下書籍：
 
 \medskip\begin{para}
-\item[texdoc usrguide] \TeX\ Live自带的用户手册．
-\item[texdoc clsguide] \TeX\ Live自带的文档类和宏包编写手册．
-\item[texdoc fntguide] \TeX\ Live自带的字体使用手册．
-\item[texdoc symbols-a4] 一份速查表，基本上所有的\LaTeX\ 字符命令都在这里了．
-\item[texdoc latexcheat] 很有趣的命令表，只有两页．
-\item[texdoc impatient] \emph{\TeX{} for the Impatient}, 一本介绍底层\TeX\ 的书．这也是我阅读的第一本\TeX\ 书，Knuth的\emph{The \TeX\ book}虽然血统正但是难啃啊．本书中译本在：\url{https://bitbucket.org/zohooo/impatient/wiki/Home}
-\item[texdoc texbytopic] \emph{\TeX{} by Topic}, 个人觉得不如上面那本，但也许只是叙述方式不一样吧．
+\item[texdoc usrguide] \TeX\ Live自帶的用户手冊．
+\item[texdoc clsguide] \TeX\ Live自帶的文檔類和宏包編寫手冊．
+\item[texdoc fntguide] \TeX\ Live自帶的字體使用手冊．
+\item[texdoc symbols-a4] 一份速查表，基本上所有的\LaTeX\ 字符命令都在這裏了．
+\item[texdoc latexcheat] 很有趣的命令表，只有兩頁．
+\item[texdoc impatient] \emph{\TeX{} for the Impatient}, 一本介紹底層\TeX\ 的書．這也是我閲讀的第一本\TeX\ 書，Knuth的\emph{The \TeX\ book}雖然血統正但是難啃啊．本書中譯本在：\url{https://bitbucket.org/zohooo/impatient/wiki/Home}
+\item[texdoc texbytopic] \emph{\TeX{} by Topic}, 個人覺得不如上面那本，但也許只是敍述方式不一樣吧．
 \end{para}
 \bigskip
 
-\noindent 你可能还需要的功能：
+\noindent 你可能還需要的功能：
 \begin{description}
-\item[\pkg{mhchem}] 该宏包用于输入化学式，提供了\latexline{ce}命令．
+\item[\pkg{mhchem}] 該宏包用於輸入化學式，提供了\latexline{ce}命令．
 \end{description}
 
 % \tikzz\ 索引

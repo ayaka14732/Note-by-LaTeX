@@ -1,93 +1,93 @@
-% safe参数解决与\!在内的多个冲突
-% \sups命令可能被重定义,xeCJK放在tipa后
+% safe參數解決與\!在內的多個衝突
+% \sups命令可能被重定義,xeCJK放在tipa後
 \RequirePackage[safe]{tipa}
 
 \documentclass[a4paper, zihao=-4, linespread=1]{ctexrep}
 \renewcommand{\CTEXthechapter}{\thechapter}
-% 最小行间间距设定
+% 最小行間間距設定
 \setlength{\lineskiplimit}{3pt}
 \setlength{\lineskip}{3pt}
 
 % 中文支持
 \setCJKmainfont[BoldFont=Source Han Serif SC Bold]{Source Han Serif SC}
   \xeCJKsetup{CJKmath=true}
-  \setCJKmathfont{KaiTi}  % 数学环境中使用楷体
-\newCJKfontfamily[zhxinwei]\xinwei{STXinwei} % 定义新字体
+  \setCJKmathfont{KaiTi}  % 數學環境中使用楷體
+\newCJKfontfamily[zhxinwei]\xinwei{STXinwei} % 定義新字體
 
-% 颜色
+% 顏色
 \usepackage[table]{xcolor}
   \newcommand{\scol}[1]{\colorbox{#1}{\rule{0em}{1ex}}\,#1}
   
 % 首字下沉
 \usepackage{lettrine}
 
-% 分栏
+% 分欄
 \usepackage{multicol}
   \setlength{\columnsep}{20pt}
   \setlength{\columnseprule}{0.4pt}
 
-% 数学环境
-\usepackage{mathdots} % 数学省略号，会重定义 dddot 和 ddddot
+% 數學環境
+\usepackage{mathdots} % 數學省略號，會重定義 dddot 和 ddddot
 \usepackage{amsmath}  
   \newcommand{\ue}{\mathrm{e}}
-  \newcommand{\ud}{\mathop{}\negthinspace\mathrm{d}} % 微分号
+  \newcommand{\ud}{\mathop{}\negthinspace\mathrm{d}} % 微分號
 \usepackage{amssymb}
-\usepackage{mathrsfs} % 线性代数字体
+\usepackage{mathrsfs} % 線性代數字體
 % overline的替代命令
 \newcommand{\closure}[2][3]{{}\mkern#1mu\overline{\mkern-#1mu#2}}
 \usepackage{yhmath} % \wideparen命令：弧AB
-\usepackage{mathtools} % dcases环境，prescript命令
-\usepackage{amsthm} % 定理环境
+\usepackage{mathtools} % dcases環境，prescript命令
+\usepackage{amsthm} % 定理環境
   \theoremstyle{definition}\newtheorem{laws}{Law}[section]
   \theoremstyle{plain}\newtheorem{ju}[laws]{Jury}
   \theoremstyle{remark}\newtheorem*{marg}{Margaret}
-\usepackage{esint} % 多重积分，需放在amsmath后
-% 箭头与长等号
+\usepackage{esint} % 多重積分，需放在amsmath後
+% 箭頭與長等號
 \usepackage{extarrows}
-% 中括号的类二项式命令
+% 中括號的類二項式命令
 \newcommand{\Bfrac}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
 
-% 下划线宏包
+% 下劃線宏包
 \usepackage[normalem]{ulem}
-% LaTeX符号宏包
+% LaTeX符號宏包
 \usepackage{hologo}
 	\newcommand{\xelatex}{\Hologo{XeLaTeX}}
   \newcommand{\bibtex}{\Hologo{BibTeX}}
   \newcommand{\biber}{\Hologo{biber}}
 	\newcommand{\tikzz}{Ti\textit{k}Z}
 	\newcommand{\bz}{B\'ezier}
-% 其他符号
+% 其他符號
 \usepackage{wasysym}
-% 带箱小页
+% 帶箱小頁
 \usepackage{boxedminipage}
-% 绘图
+% 繪圖
 \usepackage{tikz}
   \usetikzlibrary{calc,intersections,positioning,angles,quotes,decorations.pathmorphing,fit,backgrounds,through,svg.path,topaths,patterns}
   \newcommand{\tikzline}[1]{{#1\tikz{\draw[#1,line width=9](0,0)--(0.5,0);}}, }
-% 最后一页
+% 最後一頁
 \usepackage{lastpage}
 
-% 奇怪的小定义
-\newcommand{\dpar}{\\ \mbox{}}  % 空两行
-\newcommand{\qd}[1]{{\bfseries{#1}}}  % 强调
+% 奇怪的小定義
+\newcommand{\dpar}{\\ \mbox{}}  % 空兩行
+\newcommand{\qd}[1]{{\bfseries{#1}}}  % 強調
 \newcommand{\co}[1]{{\bfseries{#1}}}  % Style of concept
 \newcommand{\RED}[1]{{\color{cyan}{#1}}}
 \newcommand{\cmmd}[1]{\fbox{\texttt{\char92{}#1}}}
 \newcommand{\charef}[1]{第\ref{#1}章}
-\newcommand{\secref}[1]{第\ \ref{#1}\ 节}
-\newcommand{\pref}[1]{第\pageref{#1}页}
-\newcommand{\fref}[1]{图\ref{#1}}
+\newcommand{\secref}[1]{第\ \ref{#1}\ 節}
+\newcommand{\pref}[1]{第\pageref{#1}頁}
+\newcommand{\fref}[1]{圖\ref{#1}}
 \newcommand{\tref}[1]{表\ref{#1}}
 
-% Quote 环境
+% Quote 環境
 \newenvironment{QuoteEnv}[2][]
     {\newcommand\Qauthor{#1}\newcommand\Qref{#2}}
     {\medskip\begin{flushright}\small ——~\Qauthor\\
     \emph{\Qref}\end{flushright}}
-% 字体调用
+% 字體調用
 \newcommand{\myfont}[2]{{\fontfamily{#1}\selectfont #2}}
 
-% 编号列表宏包，并自定义了三个列表
+% 編號列表宏包，並自定義了三個列表
 \usepackage[inline]{enumitem}
 	\setlist[enumerate]{font=\bfseries,itemsep=0pt}
 	\setlist[itemize]{font=\bfseries,leftmargin=\parindent}
@@ -96,7 +96,7 @@
 \newenvironment{fead}{	
     \begin{description}[font=\bfseries\uline,labelindent=\parindent,itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]}
 	{\end{description}}
-% 带宽度的
+% 帶寬度的
 \newenvironment{para}{
 	\begin{description}[font=\bfseries\ttfamily,itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]}
 	{\end{description}}
@@ -110,15 +110,15 @@
 {\begin{enumerate*}[label=(\arabic*), font=\rmfamily, before=\unskip{：},itemjoin={{；}},itemjoin*={{，以及：}}]}
 	{\end{enumerate*}。}
 
-% 目录和章节样式
+% 目錄和章節樣式
 \usepackage{titlesec}
-\usepackage{titletoc}   % 用于目录
+\usepackage{titletoc}   % 用於目錄
 
 \titlecontents{chapter}[1.5em]{}{\contentslabel{1.5em}}{\hspace*{-2em}}{\hfill\contentspage}
 \titlecontents{section}[3.3em]{}{\contentslabel{1.8em}}
 	{\hspace*{-2.3em}}{\titlerule*[8pt]{$\cdot$}\contentspage}
 \titlecontents*{subsection}[2.5em]{\small}{\thecontentslabel{} }{}{, \thecontentspage}[;\qquad][.]
-% 章节样式
+% 章節樣式
 \setcounter{secnumdepth}{3} % 一直到subsubsection
 \newcommand{\chaformat}[1]{%
 	\parbox[b]{.5\textwidth}{\hfill\bfseries #1}%
@@ -128,22 +128,22 @@
 	\startcontents\setlength{\lineskiplimit}{0pt}\printcontents{}{1}{\setcounter{tocdepth}{2}\songti}]
 \titleformat*{\section}{\centering\Large\bfseries}
 \titleformat{\subsubsection}[hang]{\bfseries\large}{\rule{1.5ex}{1.5ex}}{0.5em}{}
-% 扩展章节
-\newcommand{\starsec}{\noindent\fbox{\S\textit{注意：本章节是一个扩展阅读章节。}}
+% 擴展章節
+\newcommand{\starsec}{\noindent\fbox{\S\textit{注意：本章節是一個擴展閲讀章節。}}
 	\\ \mbox{}}
 
-\renewcommand{\contentsname}{目录}
+\renewcommand{\contentsname}{目錄}
 	\renewcommand{\tablename}{表}
 	\renewcommand\arraystretch{1.2}	% 表格行距
-	\renewcommand{\figurename}{图}
-% 设置不需要浮动体的表格和图像标题
+	\renewcommand{\figurename}{圖}
+% 設置不需要浮動體的表格和圖像標題
 \setlength{\abovecaptionskip}{5pt}
 \setlength{\belowcaptionskip}{3pt}
 \makeatletter
 \newcommand\figcaption{\def\@captype{figure}\caption}
 \newcommand\tabcaption{\def\@captype{table}\caption}
 \makeatother
-% 图表
+% 圖表
 \usepackage{array,multirow,makecell}
   \setlength\extrarowheight{2pt} % 行高增加
 \usepackage{diagbox}
@@ -154,16 +154,16 @@
 \usepackage{caption,subcaption}
   \captionsetup[sub]{labelformat=simple}
   \renewcommand{\thesubtable}{(\alph{subtable})}
-% 三线表
+% 三線表
 \usepackage{booktabs}  
 
-% 页面修正宏包
+% 頁面修正宏包
 \usepackage{geometry}
   \geometry{vmargin = 1in}
 
-% 代码环境
+% 代碼環境
 \usepackage{listings}
-% 复制代码时不复制行号
+% 複製代碼時不復制行號
 \usepackage{accsupp}
   \newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
 \usepackage{tcolorbox}
@@ -199,8 +199,8 @@
   }
 }
 
-% 对于 tcolorbox 中 listings 库的 ''tcblatex'' style 的重现，
-% 添加了新的关键词
+% 對於 tcolorbox 中 listings 庫的 ''tcblatex'' style 的重現，
+% 添加了新的關鍵詞
 \lstdefinestyle{latexcn}{
   language=[LaTeX]TeX,
   % More Keywords
@@ -318,14 +318,14 @@
 % inline tikz draw
 %\newcommand{\tikzline}{def}
 
-% 附录
+% 附錄
 % \usepackage{appendix}
 \renewcommand{\appendixname}{App.}
 
-% 行号
+% 行號
 \usepackage{lineno}
 
-% 索引与参考文献
+% 索引與參考文獻
 \usepackage{imakeidx}
   \newcommand{\tikzidx}[1]{\index{\char`\\ #1}}
   \newcommand{\tikzoptstyle}[1]{\texttt{#1}}
@@ -334,7 +334,7 @@
 \makeindex[intoc]
 
 \bibliographystyle{plain}
-\renewcommand{\bibname}{参考文献}
+\renewcommand{\bibname}{參考文獻}
 \usepackage[numindex,numbib]{tocbibind}
 \usepackage[square,super,sort&compress]{natbib}
 

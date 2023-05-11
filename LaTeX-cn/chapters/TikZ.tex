@@ -1,54 +1,54 @@
 %!TEX root = ../LaTeX-cn.tex
-\chapter{\tikzz\  绘图*（编写中，更新于\today）}
-本章节极大地参考了 \tikzz\ 宏包手册\cite{tikzmanual}。
-\section{\tikzz\ 简介}
-``\tikzz \& PGF''（大多直接称为\tikzz）是 \LaTeX\ 上与 PSTricks(PostScript Tricks) 齐名的绘图扩展，而这两者基本上是在你的 \LaTeX\ 文档中绘制矢量图的唯二选择。Till Tantau\footnote{Till Tantau（1975---）,德国吕贝克大学理论计算机科学研究处教授。他同时也是 \LaTeX\ 大名鼎鼎的幻灯片制作宏包 \pkg{beamer} 的开发者。} 开发了 \tikzz。
+\chapter{\tikzz\  繪圖*（編寫中，更新於\today）}
+本章節極大地參考了 \tikzz\ 宏包手冊\cite{tikzmanual}。
+\section{\tikzz\ 簡介}
+``\tikzz \& PGF''（大多直接稱為\tikzz）是 \LaTeX\ 上與 PSTricks(PostScript Tricks) 齊名的繪圖擴展，而這兩者基本上是在你的 \LaTeX\ 文檔中繪製矢量圖的唯二選擇。Till Tantau\footnote{Till Tantau（1975---）,德國呂貝克大學理論計算機科學研究處教授。他同時也是 \LaTeX\ 大名鼎鼎的幻燈片製作宏包 \pkg{beamer} 的開發者。} 開發了 \tikzz。
 
-其中，``PGF'' 是 ``Portable Graphic Format''（便携图像格式）的缩写，是整个绘图系统的底层（或者后端）；而 ``\tikzz'' 是 ``TikZ ist \emph{kein} 
-Zeichenprogramm'' 的缩写，即英文的 ``TikZ is not a drawing program''（“\tikzz\ 不是绘图软件”），则是系统的前端。Till 是仿造 GNU 的缩写 ``GNU is Not Unix'' 这种递归式格式命名 \tikzz\ 的，他在文档中也提及了这一点。
+其中，``PGF'' 是 ``Portable Graphic Format''（便攜圖像格式）的縮寫，是整個繪圖系統的底層（或者後端）；而 ``\tikzz'' 是 ``TikZ ist \emph{kein} 
+Zeichenprogramm'' 的縮寫，即英文的 ``TikZ is not a drawing program''（“\tikzz\ 不是繪圖軟件”），則是系統的前端。Till 是仿造 GNU 的縮寫 ``GNU is Not Unix'' 這種遞歸式格式命名 \tikzz\ 的，他在文檔中也提及了這一點。
 
-从 \tikzz\ 发布稳定版以来，它的功能可以说涵盖了文档绘图的绝大部分\textbf{科学绘图场景}（我强调这一点，是因为我相信用它画艺术设计图的效率会很低）——对于研究工作者或者学生，这再好不过了。举个例子：笔者在大学期间的计算机和统计课程的所有出图都是由 \tikzz\ 绘制的。
+從 \tikzz\ 發佈穩定版以來，它的功能可以説涵蓋了文檔繪圖的絕大部分\textbf{科學繪圖場景}（我強調這一點，是因為我相信用它畫藝術設計圖的效率會很低）——對於研究工作者或者學生，這再好不過了。舉個例子：筆者在大學期間的計算機和統計課程的所有出圖都是由 \tikzz\ 繪製的。
 
-\tikzz\ 的官方文档，使用\texttt{texdoc tikz}命令调出。看的出来，Till 努力将文档写的生动有趣。如果不是篇幅实在有些长，相信你读起来会很愉快。
+\tikzz\ 的官方文檔，使用\texttt{texdoc tikz}命令調出。看的出來，Till 努力將文檔寫的生動有趣。如果不是篇幅實在有些長，相信你讀起來會很愉快。
 
-\subsection{选择 \tikzz\ 还是 PSTricks}
-关于这两者应该学哪一个，大家甚至展开圣战；虽然没有计算机行业 Vim 和 Emacs 圣战那么夸张，但是着实给不少想要学习 \LaTeX\ 绘图的人带来困扰\footnote{笔者就颇受困扰，所以都尝试过。当年还有人把 Asymptote 也扯进这场圣战，但笔者认为它的竞争力没有那么强。}。
+\subsection{選擇 \tikzz\ 還是 PSTricks}
+關於這兩者應該學哪一個，大家甚至展開聖戰；雖然沒有計算機行業 Vim 和 Emacs 聖戰那麼誇張，但是着實給不少想要學習 \LaTeX\ 繪圖的人帶來困擾\footnote{筆者就頗受困擾，所以都嘗試過。當年還有人把 Asymptote 也扯進這場聖戰，但筆者認為它的競爭力沒有那麼強。}。
 
-笔者最后选择了 \tikzz\ 。为什么？相比 PSTricks，语法顺畅，可读性更高。易读易写，十分难得。至于谁的绘图能力更强，我认为他们都已经涵盖了你正常需要的范畴。所以，如果你仍然不确定的话，就去搜索一些他们各自的例子片段再决定吧。
+筆者最後選擇了 \tikzz\ 。為什麼？相比 PSTricks，語法順暢，可讀性更高。易讀易寫，十分難得。至於誰的繪圖能力更強，我認為他們都已經涵蓋了你正常需要的範疇。所以，如果你仍然不確定的話，就去搜索一些他們各自的例子片段再決定吧。
 
-\subsection{选择 \tikzz\ 还是外部绘图软件}
-为什么选择 \tikzz\ 而不是用外部绘图软件呢？一些理由：
+\subsection{選擇 \tikzz\ 還是外部繪圖軟件}
+為什麼選擇 \tikzz\ 而不是用外部繪圖軟件呢？一些理由：
 \begin{itemize}
-\item \textbf{绘制矢量图}。外部绘图为 pdf 矢量图再用加载图片的方式加载进来当然可以；但是很多情况下，切换软件的时间成本与切换到另一个软件的操作模式的思考成本是很高的。
-\item \textbf{更小的体积}。相比加载外部绘图，体积会小一些；虽然不是特别明显。
-\item \textbf{更易维护}。外部绘制的图片需要你通过安装相应的绘图软件进行维护；但是使用 \tikzz\ 绘图，你只需要一台装有 \LaTeX\ 核心和 \tikzz\ 宏包的设备。
+\item \textbf{繪製矢量圖}。外部繪圖為 pdf 矢量圖再用加載圖片的方式加載進來當然可以；但是很多情況下，切換軟件的時間成本與切換到另一個軟件的操作模式的思考成本是很高的。
+\item \textbf{更小的體積}。相比加載外部繪圖，體積會小一些；雖然不是特別明顯。
+\item \textbf{更易維護}。外部繪製的圖片需要你通過安裝相應的繪圖軟件進行維護；但是使用 \tikzz\ 繪圖，你只需要一台裝有 \LaTeX\ 核心和 \tikzz\ 宏包的設備。
 
-千万别小看这一点；很多时候你需要在别人的电脑上更改你的插图。比如学术圈子里，电脑上安装有 \TeX\ Live 是一件稀松平常的事情；但是安装有 GNUplot 绘图，矢量图编辑器？那可不一定。
-\item \textbf{完全的文本文件}。如果你使用 git 之类的版本控制工具，你应该会明白这一条是什么意思。不管你是将 \tikzz\ 代码写在主 tex 文档中，还是另存到一份单独的 tex 文档，它们都是文本文件。如果用加载外部 pdf 的方式导入图片，那想对它们进行版本控制简直是一场灾难。
+千萬別小看這一點；很多時候你需要在別人的電腦上更改你的插圖。比如學術圈子裏，電腦上安裝有 \TeX\ Live 是一件稀鬆平常的事情；但是安裝有 GNUplot 繪圖，矢量圖編輯器？那可不一定。
+\item \textbf{完全的文本文件}。如果你使用 git 之類的版本控制工具，你應該會明白這一條是什麼意思。不管你是將 \tikzz\ 代碼寫在主 tex 文檔中，還是另存到一份單獨的 tex 文檔，它們都是文本文件。如果用加載外部 pdf 的方式導入圖片，那想對它們進行版本控制簡直是一場災難。
 \end{itemize}
 
-\section{\tikzz\ 的输入输出}
-\subsection{基本绘图方式}
-\tikzz\ 的基本绘图方式有两种：使用 \latexline{tikz} 命令，或者使用 \envi{tikzpicture} 环境。请注意，\RED{语句用分号结尾}。当然，你需要先加载 \pkg{tikz} 宏包，有时你还需要加载一些 \tikzz\ 的库：
+\section{\tikzz\ 的輸入輸出}
+\subsection{基本繪圖方式}
+\tikzz\ 的基本繪圖方式有兩種：使用 \latexline{tikz} 命令，或者使用 \envi{tikzpicture} 環境。請注意，\RED{語句用分號結尾}。當然，你需要先加載 \pkg{tikz} 宏包，有時你還需要加載一些 \tikzz\ 的庫：
 \begin{latex}
 \usepackage{tikz}
-% 加载库：\usetikzlibrary{lib1, lib2, ...}
+% 加載庫：\usetikzlibrary{lib1, lib2, ...}
 \end{latex}
 
-两个例子：
+兩個例子：
 \begin{codeshow}
 % 使用 \tikz 命令
 \tikz{\draw (0,1) -- (1,0)}
-% 使用 tikzpicture 环境
+% 使用 tikzpicture 環境
 \begin{tikzpicture}
 \draw (0,0) -- (1,1);
 \end{tikzpicture}
 \end{codeshow}
 
-如果你使用 \TeX\ 而非 \LaTeX\ ，那么请在 \latexline{tikzpicture} 和 \latexline{endtikzpicture} 之中使用 \tikzz\ 代码。
+如果你使用 \TeX\ 而非 \LaTeX\ ，那麼請在 \latexline{tikzpicture} 和 \latexline{endtikzpicture} 之中使用 \tikzz\ 代碼。
 
-\subsection{输出图像到独立文件}
-要输出为\texttt{.svg}矢量文件，用于更多的插图场合。需要在电脑安装pdf2svg\footnote{\url{http://www.cityinthesky.co.uk/opensource/pdf2svg/}}。不过在\LaTeX 使用的场合，可以去掉下述的\texttt{convert}参数，以输出\texttt{.pdf}格式的矢量文件。下例中的\texttt{multi=false}表示只输出为单页文件。
+\subsection{輸出圖像到獨立文件}
+要輸出為\texttt{.svg}矢量文件，用於更多的插圖場合。需要在電腦安裝pdf2svg\footnote{\url{http://www.cityinthesky.co.uk/opensource/pdf2svg/}}。不過在\LaTeX 使用的場合，可以去掉下述的\texttt{convert}參數，以輸出\texttt{.pdf}格式的矢量文件。下例中的\texttt{multi=false}表示只輸出為單頁文件。
 
 \begin{latex}
 \documentclass[tikz,convert=pdf2svg,multi=false]{standalone}
@@ -61,33 +61,33 @@ Zeichenprogramm'' 的缩写，即英文的 ``TikZ is not a drawing program''（�
 \end{document}
 \end{latex}
 
-在编译时如果是\xelatex ，还需要添加参数：
+在編譯時如果是\xelatex ，還需要添加參數：
 \begin{latex}
-% 如果上例的文件名为 example.tex
+% 如果上例的文件名為 example.tex
 xelatex -shell-escape example.tex
 \end{latex}
 
-\section{基础几何元素}
-本节介绍 \tikzz\ 的基础几何元素，希望能够帮助读者较系统地进行学习。如果读者希望通过例子入手，请参考\secref{sec:tikz-eg}。
+\section{基礎幾何元素}
+本節介紹 \tikzz\ 的基礎幾何元素，希望能夠幫助讀者較系統地進行學習。如果讀者希望通過例子入手，請參考\secref{sec:tikz-eg}。
 
-\subsection{点与线段}
-点和线是绘图的基本要素。\tikzz\ 通过坐标的方式指定点的位置，坐标书写在一对圆括号内；通过两个短横线“--”来连接点与点，形成线段。下例连续画了两段。\RED{为了简洁，下文展示代码时省略 tikzpicture 环境首尾}。
+\subsection{點與線段}
+點和線是繪圖的基本要素。\tikzz\ 通過座標的方式指定點的位置，座標書寫在一對圓括號內；通過兩個短橫線“--”來連接點與點，形成線段。下例連續畫了兩段。\RED{為了簡潔，下文展示代碼時省略 tikzpicture 環境首尾}。
 \begin{tikzshow}
 \draw (0,0) -- (1,0) -- (2,0.5);
 \end{tikzshow}
 
-默认的单位长度是 1 cm。如果想要修改比例尺，或者调整线型、颜色等属性参数，请参考\secref{sec:tikz-property}。极坐标参考\secref{subsec:coord}。
+默認的單位長度是 1 cm。如果想要修改比例尺，或者調整線型、顏色等屬性參數，請參考\secref{sec:tikz-property}。極座標參考\secref{subsec:coord}。
 
-\subsection{路径}
-命令 \latexline{path} 可以只创建路径但不绘制；实质上，\latexline{draw} 命令就是 \latexline{path[draw]} 的简写形式。\latexline{fill} 命令也类似。
+\subsection{路徑}
+命令 \latexline{path} 可以只創建路徑但不繪製；實質上，\latexline{draw} 命令就是 \latexline{path[draw]} 的簡寫形式。\latexline{fill} 命令也類似。
 
-\subsection{\bz\ 曲线}
-\tikzz\ 允许你使用 \tikzkw{.. controls <p1> and <p2> ..} 方式来指定\bz\ 曲线的两个控制点。第二控制点可以省略；省略时，设为与第一控制点相同。
+\subsection{\bz\ 曲線}
+\tikzz\ 允許你使用 \tikzkw{.. controls <p1> and <p2> ..} 方式來指定\bz\ 曲線的兩個控制點。第二控制點可以省略；省略時，設為與第一控制點相同。
 \begin{tikzshow}
 \draw (0,0) .. controls (0.5,1) and (1.5,1) .. (2,0);
 \end{tikzshow}
 
-控制点并不会显式地画在图中。为了帮助不熟悉 \bz\ 曲线的读者理解，在此绘制一些辅助说明的点和线：
+控制點並不會顯式地畫在圖中。為了幫助不熟悉 \bz\ 曲線的讀者理解，在此繪製一些輔助説明的點和線：
 \begin{tikzshow}
 \draw (0,0) .. controls (0.5,1) and (1.5,1) .. (2,0);
 % Auxilary Points & Lines
@@ -97,36 +97,36 @@ xelatex -shell-escape example.tex
 \end{tikzshow}
 
 \subsection{矩形}
-指定矩形的西南角点和东北角点，用 \tikzkw{rectangle} 命令连接：
+指定矩形的西南角點和東北角點，用 \tikzkw{rectangle} 命令連接：
 \begin{tikzshow}
 \draw (0,0) rectangle (2,1);
 \end{tikzshow}
 
-\subsection{圆与椭圆}
-指定圆或者椭圆的中心，然后指明它半径的参数\footnote{\texttt{circle (1cm)} 的写法较陈旧，不建议再使用。椭圆绘制也请使用 \tikzkw{circle}，而不是陈旧的 \tikzkw{ellipse}。}：
+\subsection{圓與橢圓}
+指定圓或者橢圓的中心，然後指明它半徑的參數\footnote{\texttt{circle (1cm)} 的寫法較陳舊，不建議再使用。橢圓繪製也請使用 \tikzkw{circle}，而不是陳舊的 \tikzkw{ellipse}。}：
 \begin{tikzshow}
 \draw (0,0) circle [x radius=12pt, y radius=6pt];
 \draw (2,0) circle [radius=0.5cm];
 \end{tikzshow}
 
-\subsection{圆弧与椭圆弧}
-指定圆弧的起点，在选项中给出起始角度、终止角度和半径，即可画弧：
+\subsection{圓弧與橢圓弧}
+指定圓弧的起點，在選項中給出起始角度、終止角度和半徑，即可畫弧：
 \begin{tikzshow}
 \draw (2,0) arc [start angle=0, end angle=45, radius=2];
 \draw (1,0) arc [start angle=0, end angle=270, x radius=1, y radius=.5];
 \end{tikzshow}
-你也可以不指定 \tikzkw{end angle} 而使用圆弧对应的圆心角 \tikzkw{delta angle}。 在绘制弧时使用极坐标，请参考\secref{subsec:coord}。
+你也可以不指定 \tikzkw{end angle} 而使用圓弧對應的圓心角 \tikzkw{delta angle}。 在繪製弧時使用極座標，請參考\secref{subsec:coord}。
 
-\subsection{网格}
-网格即为自动绘制的等距线：
+\subsection{網格}
+網格即為自動繪製的等距線：
 \begin{tikzshow}
 \draw[step=0.5,lightgray,thin] (0,0) grid (2,2);
 \draw (1,1) circle [radius=.5];
 \end{tikzshow}
-默认的 \tikzkw{step} 是 1。 \tikzkw{xstep} 和 \tikzkw{ystep} 命令可分别指定沿两个轴向的间距。
+默認的 \tikzkw{step} 是 1。 \tikzkw{xstep} 和 \tikzkw{ystep} 命令可分別指定沿兩個軸向的間距。
 
-\subsection{抛物线*}
-抛物线使用 \tikzkw{parabola} 绘制，并可使用 \tikzkw{bend} 指定拐点位置：
+\subsection{拋物線*}
+拋物線使用 \tikzkw{parabola} 繪製，並可使用 \tikzkw{bend} 指定拐點位置：
 \begin{tikzshow}
 \draw[help lines, xstep=1, ystep=2] (0,0) grid (3,4);
 \draw (0,2) parabola[bend at end] (1,0);
@@ -136,57 +136,57 @@ xelatex -shell-escape example.tex
 \draw[xshift=1cm, yshift=2cm] (0,0) -- (1,2) parabola cycle;
 \draw[xshift=2cm, yshift=2cm] (0,0) parabola[parabola height=2cm] +(1,0);
 \end{tikzshow}
-其中 \tikzkw{xshift/yshift} 参考 \secref{subsubsec:shift}。抛物线的参数解释如下：
+其中 \tikzkw{xshift/yshift} 參考 \secref{subsubsec:shift}。拋物線的參數解釋如下：
 \begin{para}
-\item[bend at end] 或者 \tikzkw{bend at start}，这样抛物线是正常情况的一半。
-\item[bend] 指定在何处设置拐点。
-\item[bend pos=L] 在起点、终点连线的 L 分点处为基准设置拐点，比如上例为四分之三分点向上偏移 1 单位。
-\item[cycle] 使用 \tikzkw{cycle} 结尾，自动直线连接首尾，形成闭合路径。
-\item[parabola height=H] 在起终点连线的二分之一分点处向上偏移 H 处设置拐点。
+\item[bend at end] 或者 \tikzkw{bend at start}，這樣拋物線是正常情況的一半。
+\item[bend] 指定在何處設置拐點。
+\item[bend pos=L] 在起點、終點連線的 L 分點處為基準設置拐點，比如上例為四分之三分點向上偏移 1 單位。
+\item[cycle] 使用 \tikzkw{cycle} 結尾，自動直線連接首尾，形成閉合路徑。
+\item[parabola height=H] 在起終點連線的二分之一分點處向上偏移 H 處設置拐點。
 \end{para}
 
-\subsection{正弦线与余弦线*}
-使用 \tikzkw{sin} 和 \tikzkw{cos} 绘制。
+\subsection{正弦線與餘弦線*}
+使用 \tikzkw{sin} 和 \tikzkw{cos} 繪製。
 
-\section{坐标与图像}
-\subsection{引言：画笔位置}
-\tikzz\ 中一个很重要的概念是画笔，在一个常规的 \latexline{draw} 命令中，想象使用画笔从头到尾依次连接各个点。每次检测到“--”这条绘制命令，\tikzz\ 都将移动画笔位置并画线。
+\section{座標與圖像}
+\subsection{引言：畫筆位置}
+\tikzz\ 中一個很重要的概念是畫筆，在一個常規的 \latexline{draw} 命令中，想象使用畫筆從頭到尾依次連接各個點。每次檢測到“--”這條繪製命令，\tikzz\ 都將移動畫筆位置並畫線。
 
-\tikzz\ 提供了一种方法，可以在移动画笔的同时不划线。这个命令就是 \tikzkw{++}：
+\tikzz\ 提供了一種方法，可以在移動畫筆的同時不劃線。這個命令就是 \tikzkw{++}：
 \begin{tikzshow}
 \draw (0,0) -- (1,0) ++(0,1) circle [radius=.25] -- ++(-1,0) -- (0,0);
 \end{tikzshow}
 
-\tikzz\ 还提供了一个命令 \tikzkw{+}，可以\textbf{临时}偏移画笔：
+\tikzz\ 還提供了一個命令 \tikzkw{+}，可以\textbf{臨時}偏移畫筆：
 \begin{tikzshow}
 \draw (0,0) -- (1,0) -- +(0,1) circle [radius=.25] -- +(-1,1) -- +(-1,0);
 \end{tikzshow}
 
-请仔细体会两个命令的不同之处：单加号用于\uline{指代相对坐标}，而相对坐标的基准点不会改变，直到指定新的绝对坐标 ；双加号用于\uline{移动画笔}，基准点的位置会随之改变。
+請仔細體會兩個命令的不同之處：單加號用於\uline{指代相對座標}，而相對座標的基準點不會改變，直到指定新的絕對座標 ；雙加號用於\uline{移動畫筆}，基準點的位置會隨之改變。
 
-\subsection{指定坐标}
+\subsection{指定座標}
 \label{subsec:coord}
-本节介绍了如何指定坐标，包括直角坐标、极坐标，以及如何指定一个相对于已知点的坐标。其他坐标系也会在此介绍。
+本節介紹瞭如何指定座標，包括直角座標、極座標，以及如何指定一個相對於已知點的座標。其他座標系也會在此介紹。
 
-\subsubsection{直角坐标与极坐标}
-通常会使用直角坐标系（coordinate system）来标定坐标位置，正如上一节所示。直角坐标的格式是 \texttt{(x,y)}，其中 $x$ 轴正向指向纸面右方，$y$ 轴正向指向纸面上方；而极坐标的格式是 \texttt{(角度:\mbox{}距离)}。
+\subsubsection{直角座標與極座標}
+通常會使用直角座標系（coordinate system）來標定座標位置，正如上一節所示。直角座標的格式是 \texttt{(x,y)}，其中 $x$ 軸正向指向紙面右方，$y$ 軸正向指向紙面上方；而極座標的格式是 \texttt{(角度:\mbox{}距離)}。
 
-实质上，上述坐标的是隐式指定的；如果要显式指定，格式如下例的第二行：
+實質上，上述座標的是隱式指定的；如果要顯式指定，格式如下例的第二行：
 \begin{tikzshow}
 \draw[red] (0,0) circle [radius=0.5] -- (30:1cm);
 \draw (canvas cs: x=0, y=0) -- (canvas polar cs: radius=1cm, angle=60);
 \end{tikzshow}
 
-\subsubsection{相对已知点的坐标}
-大致有这么几种方法：
+\subsubsection{相對已知點的座標}
+大致有這麼幾種方法：
 \begin{feai}
-\item 使用上一节中的单加号或双加号指令来指定相对位置；
-\item 使用平移参数 \tikzkw{shift} （参考\secref{subsubsec:shift}内容）；
-\item 使用扭转参数 \tikzkw{turn}，它基于进入当前点的切线方向，这在绘制折线时很有用；
-\item 使用 \pkg{calc} 库支持的 \verb|($ ... $)| 指令进行计算。
+\item 使用上一節中的單加號或雙加號指令來指定相對位置；
+\item 使用平移參數 \tikzkw{shift} （參考\secref{subsubsec:shift}內容）；
+\item 使用扭轉參數 \tikzkw{turn}，它基於進入當前點的切線方向，這在繪製折線時很有用；
+\item 使用 \pkg{calc} 庫支持的 \verb|($ ... $)| 指令進行計算。
 \end{feai}
 
-一个综合上述方法的例子：
+一個綜合上述方法的例子：
 \begin{tikzshow}
 \draw (0,0) circle[radius=1];
 \draw (0,0) { [current point is local]-- ++(1,-1)} -- ++(0,-0.5); 
@@ -198,23 +198,23 @@ xelatex -shell-escape example.tex
 \draw[green] (0,0) -- (150:.5cm) -- ([turn]-45:.5cm)
      arc[start angle=105, delta angle=-135, radius=.5];
 \end{tikzshow}
-其中，选项 \tikzkw{current point is local} 表示当前花括号内的画笔移动不会影响到外部的画笔位置。
+其中，選項 \tikzkw{current point is local} 表示當前花括號內的畫筆移動不會影響到外部的畫筆位置。
 
-\subsubsection{三维坐标系*}
-通常 \tikzz\ 绘图只需要用到平面坐标，但它也支持三维坐标系。
+\subsubsection{三維座標系*}
+通常 \tikzz\ 繪圖只需要用到平面座標，但它也支持三維座標系。
 
-\tikzz\ 使用了名为 \texttt{xyz} 的坐标系统来支持三维坐标，因此调用是：
+\tikzz\ 使用了名為 \texttt{xyz} 的座標系統來支持三維座標，因此調用是：
 \begin{tikzshow}[thick]
 \draw (0,0) -- (xyz cs: x=1);
 \draw[red] (0,0) -- (0,1,0);
 \draw[blue] (0,0) -- (0,0,1);
 \end{tikzshow}
 
-\subsubsection{重心坐标系*}
-重心坐标系（barycentric coordinate system）指定一系列向量 $\overrightarrow{v_1}, \overrightarrow{v_2},\ldots,\overrightarrow{v_n}$，然后坐标为 $(p_1,p_2,\ldots,p_n)$ 的点的位置是它们的线性组合向量对应的位置：
+\subsubsection{重心座標系*}
+重心座標系（barycentric coordinate system）指定一系列向量 $\overrightarrow{v_1}, \overrightarrow{v_2},\ldots,\overrightarrow{v_n}$，然後座標為 $(p_1,p_2,\ldots,p_n)$ 的點的位置是它們的線性組合向量對應的位置：
 \[ \frac{p_1\overrightarrow{v_1}+p_2\overrightarrow{v_2}+\cdots+p_n\overrightarrow{v_n}}{p_1+p_2+\cdots+p_n} \]
 
-一个例子（涉及的命令会在另外的章节介绍）：
+一個例子（涉及的命令會在另外的章節介紹）：
 \begin{tikzshow}
 \tikzset{small/.style={draw=none, circle, fill=#1!70, inner sep=1pt}}
 \coordinate[label=above:A] (A) at (90:1cm);
@@ -226,14 +226,14 @@ xelatex -shell-escape example.tex
 \node[small=green] at (barycentric cs:A=0.5,B=0.5,C=0.1) {};
 \end{tikzshow}
 
-\subsection{交点}
+\subsection{交點}
 \label{subsec:intersection}
-\tikzz\ 提供一种简洁的坐标交点控制，例如 \texttt{(<p1> -| <p2>)} 中，用短横表示过 \texttt{p1} 的水平线、用竖线表示过 \texttt{p2} 的竖直线，这两条线的交点就是该命令表示的点。类似还有命令 \tikzkw{|-} 。
+\tikzz\ 提供一種簡潔的座標交點控制，例如 \texttt{(<p1> -| <p2>)} 中，用短橫表示過 \texttt{p1} 的水平線、用豎線表示過 \texttt{p2} 的豎直線，這兩條線的交點就是該命令表示的點。類似還有命令 \tikzkw{|-} 。
 \begin{tikzshow}
 \draw (0,0) circle [radius=1cm] -- (30:1 |- 0,0) -- (30:1) -- cycle;
 \end{tikzshow}
 
-利用 \tikzz\ 的 \pkg{intersections} 库，还可以寻找两条路径的交点：
+利用 \tikzz\ 的 \pkg{intersections} 庫，還可以尋找兩條路徑的交點：
 \begin{tikzshow}
 % \usetikzlibrary{intersections}
 \path[name path=line1] (0,0) -- (1,1);
@@ -241,7 +241,7 @@ xelatex -shell-escape example.tex
 \draw[name intersections={of=line1 and line2, by=A}] (0,0) -- (A) -- (1,0);
 \end{tikzshow}
 
-有时路径会有多个交点，这时你可以依次用 \texttt{intersection-1, 2, \ldots} 来指定它们。或者，你可以使用 \tikzkw{name} 选项代替上例的 \tikzkw{by}，然后使用你的自定义名称：
+有時路徑會有多個交點，這時你可以依次用 \texttt{intersection-1, 2, \ldots} 來指定它們。或者，你可以使用 \tikzkw{name} 選項代替上例的 \tikzkw{by}，然後使用你的自定義名稱：
 \begin{tikzshow}
 \path[name path=line1] (-2,.25) -- (2,.25);
 \draw[name path=circle] (0,0) circle [radius=.5];
@@ -249,7 +249,7 @@ xelatex -shell-escape example.tex
 \draw (0,0) -- (A-2);
 \end{tikzshow} 
 
-用 \tikzkw{total} 可以存储交点个数到一个宏命令，而 \tikzkw{sort by} 可以指定以相交路径中的某一条来给交点排序\cite{tikzmanual}：
+用 \tikzkw{total} 可以存儲交點個數到一個宏命令，而 \tikzkw{sort by} 可以指定以相交路徑中的某一條來給交點排序\cite{tikzmanual}：
 \begin{tikzshow}[scale=0.7]
 \tikzset{small/.style={draw, circle, fill=#1!70, inner sep=2pt}}
 \foreach \pathname/\offset/\color in {la/0cm/black,lb/3cm/red} {
@@ -264,36 +264,36 @@ xelatex -shell-escape example.tex
 }
 \end{tikzshow}
 
-\subsection{图像变换}
-\tikzz\ 的图像变换主要包括 4 种：平移、旋转、缩放与倾斜。
+\subsection{圖像變換}
+\tikzz\ 的圖像變換主要包括 4 種：平移、旋轉、縮放與傾斜。
 
-除了这 4 种变换以外，\tikzz\ 也允许你使用 \tikzkw{cm} 选项，通过输入变换矩阵来完成变换。传入 4 值 1 坐标 \texttt{cm=\{a,b,c,d,(p,q)\}}，则点 \((x,y)\) 会被变换为 \((x',y')\)：
+除了這 4 種變換以外，\tikzz\ 也允許你使用 \tikzkw{cm} 選項，通過輸入變換矩陣來完成變換。傳入 4 值 1 座標 \texttt{cm=\{a,b,c,d,(p,q)\}}，則點 \((x,y)\) 會被變換為 \((x',y')\)：
 \[
 \begin{pmatrix} x' \\ y' \end{pmatrix} =
 \begin{pmatrix} a & c\\ b & d \end{pmatrix}
 \begin{pmatrix} x \\ y \end{pmatrix} + \begin{pmatrix} p \\ q \end{pmatrix}
 \]
-由于使用率极低，这里不再给出 \tikzkw{cm} 的例子；下面介绍 4 种主要变换。
+由於使用率極低，這裏不再給出 \tikzkw{cm} 的例子；下面介紹 4 種主要變換。
 
 \subsubsection{平移（shift）}
 \label{subsubsec:shift}
-在使用绘制命令时使用 \tikzkw{xshift}、\tikzkw{yshift} 或 \tikzkw{shift} 选项，可以平移路径。使用 \tikzkw{shift} 时，相对或绝对坐标都需写在花括号内。
+在使用繪製命令時使用 \tikzkw{xshift}、\tikzkw{yshift} 或 \tikzkw{shift} 選項，可以平移路徑。使用 \tikzkw{shift} 時，相對或絕對座標都需寫在花括號內。
 \begin{tikzshow}
 \draw (0,0) circle [radius=.5] -- (1,0);
 \draw[xshift=1cm] (0,0) circle [radius=.5];
 \end{tikzshow}
 
-特别指出，\RED{平移是可以在路径的中间操作的，它只影响其后的绘制命令}：
+特別指出，\RED{平移是可以在路徑的中間操作的，它隻影響其後的繪製命令}：
 \begin{tikzshow}
 \draw (0,0) circle [radius=.5] [xshift=1cm, ultra thick] -- (0,0) circle [radius=.5];
 \draw (.5,0) [shift={+(.5,.5)},->] -- (0,0);
 \end{tikzshow}
-上例使用了相对坐标，只把点 \((0,0)\) 变换成了点 \((1,.5)\)。
+上例使用了相對座標，只把點 \((0,0)\) 變換成了點 \((1,.5)\)。
 
-另外，上例中的 \tikzkw{ultra thick} 影响了整个路径而不只是其后的部分，这也是 \tikzz\ 参数的一般情况；也就是说，平移参数不同于一般参数。
+另外，上例中的 \tikzkw{ultra thick} 影響了整個路徑而不只是其後的部分，這也是 \tikzz\ 參數的一般情況；也就是説，平移參數不同於一般參數。
 
-\subsubsection{旋转（rotate）}
- \tikzkw{rotate} 参数默认绕原点旋转。使用 \tikzkw{rotate around} 来指定旋转中心：
+\subsubsection{旋轉（rotate）}
+ \tikzkw{rotate} 參數默認繞原點旋轉。使用 \tikzkw{rotate around} 來指定旋轉中心：
 \begin{tikzshow}[scale=1.5]
 \draw[lightgray] (0,0) rectangle (2,1)
     [rotate=15] (0,0) rectangle (2,1);
@@ -303,21 +303,21 @@ xelatex -shell-escape example.tex
 \draw[brown] (.5,.5) [rotate around={-60:+(.5,0)}] rectangle (1.5,1); 
 \end{scope}
 \end{tikzshow}
-注意上例中相对坐标的使用，两次指定的旋转中心是同一个点。
+注意上例中相對座標的使用，兩次指定的旋轉中心是同一個點。
 
-旋转命令还可以用于三维坐标系中，例如使用 \tikzkw{rotate around x=<angle>} 来使绘图对象绕着 \(x\) 轴旋转。
+旋轉命令還可以用於三維座標系中，例如使用 \tikzkw{rotate around x=<angle>} 來使繪圖對象繞着 \(x\) 軸旋轉。
 
-\subsubsection{缩放（scale）}
-使用 \tikzkw{xscale}、\tikzkw{yscale} 或 \tikzkw{scale} 选项，可以作为 \envi{tikzpicture} 环境的可选参数使用，也可以直接用在命令中：
+\subsubsection{縮放（scale）}
+使用 \tikzkw{xscale}、\tikzkw{yscale} 或 \tikzkw{scale} 選項，可以作為 \envi{tikzpicture} 環境的可選參數使用，也可以直接用在命令中：
 \begin{tikzshowenvi}
 \begin{tikzpicture}[scale=.5]
 \draw[very thick] (1,0) circle [radius=1];
 \draw[scale=2] (0,0) circle [radius=1]; 
 \end{tikzpicture}
 \end{tikzshowenvi}
-第二行的缩放 \texttt{scale} 是正常图像的 \(0.5\times 2=1\) 倍。
+第二行的縮放 \texttt{scale} 是正常圖像的 \(0.5\times 2=1\) 倍。
 
-使用负值来实现“翻转”效果，以及使用 \tikzkw{scale around} 来指定缩放中心：
+使用負值來實現“翻轉”效果，以及使用 \tikzkw{scale around} 來指定縮放中心：
 \begin{tikzshow}[very thick]
 \draw[thin] (0,0) circle [radius=1];
 \draw[xscale=-1] (0,0) rectangle (1,1);
@@ -325,10 +325,10 @@ xelatex -shell-escape example.tex
 \draw[blue, scale around={1.5:(1,1)}] (0,0) rectangle (1,1);
 \end{tikzshow}
 
-注意，缩放命令 \tikzkw{scale} 并不更改对象的属性，比如点的字体大小、线宽等等。如果想要改变这些，参考\secref{subsec:nodescaling}部分。
+注意，縮放命令 \tikzkw{scale} 並不更改對象的屬性，比如點的字體大小、線寬等等。如果想要改變這些，參考\secref{subsec:nodescaling}部分。
 
-\subsubsection{倾斜（slant）*}
-倾斜不是一个常用的图像变换。\tikzz\ 中的倾斜指令是 \tikzkw{xslant} 与 \tikzkw{yslant}。简单地解释，\texttt{xslant=k} 会把图像中坐标为 \((x,y)\) 的点变换为 \((x+k\times y, y)\)。
+\subsubsection{傾斜（slant）*}
+傾斜不是一個常用的圖像變換。\tikzz\ 中的傾斜指令是 \tikzkw{xslant} 與 \tikzkw{yslant}。簡單地解釋，\texttt{xslant=k} 會把圖像中座標為 \((x,y)\) 的點變換為 \((x+k\times y, y)\)。
 \begin{tikzshow}[very thick,scale=.6]
 \draw[help lines] (0,0) grid (4,2);
 \draw (0,0) -- (1,1) -- (1,2) -- cycle;
@@ -337,23 +337,23 @@ xelatex -shell-escape example.tex
 \end{tikzshow}
 
 \subsection{裁剪（clip）}
-在 \latexline{clip} 命令\RED{之后}的所有绘图都会只显示该裁剪视窗中的部分：
+在 \latexline{clip} 命令\RED{之後}的所有繪圖都會只顯示該裁剪視窗中的部分：
 \begin{tikzshow}
 \clip (0,0) rectangle (1.1, 1.1);
 \draw[red, thick] (0,0) circle [radius=1];
 \end{tikzshow}
 
-添加 \tikzkw{draw} 选项可以把 \latexline{clip} 命令的“轮廓”绘制出来\footnote{也可使用 \latexline{draw} 命令并将 \tikzkw{clip} 作为参数，还可将两者作为 \latexline{path} 命令的参数。}：
+添加 \tikzkw{draw} 選項可以把 \latexline{clip} 命令的“輪廓”繪製出來\footnote{也可使用 \latexline{draw} 命令並將 \tikzkw{clip} 作為參數，還可將兩者作為 \latexline{path} 命令的參數。}：
 \begin{tikzshow}
 \clip[preaction={draw=red,ultra thick}] (1.2,0) arc [start angle=0, end angle=225, radius=1.2];
 \draw (-1,-1) rectangle (1,1);
 \draw (-1,1) -- (1,-1);
 \end{tikzshow}
-上例使用一个非闭合的路径（圆弧）来裁剪，\tikzz\ 会自动将其首尾连接。其中，\tikzkw{preaction} 选项表示在 \latexline{clip} 命令\RED{之前}先沿该路径按传递给其的参数绘制，之后再创建裁剪视窗；这样可以实现视窗轮廓的自定义绘制（因为裁剪只影响其后的绘制命令）。
+上例使用一個非閉合的路徑（圓弧）來裁剪，\tikzz\ 會自動將其首尾連接。其中，\tikzkw{preaction} 選項表示在 \latexline{clip} 命令\RED{之前}先沿該路徑按傳遞給其的參數繪製，之後再創建裁剪視窗；這樣可以實現視窗輪廓的自定義繪製（因為裁剪隻影響其後的繪製命令）。
 
-\subsection{分组（scope）}
+\subsection{分組（scope）}
 \label{subsec:scope}
-分组操作允许你对当前组使用参数——这些参数会叠加到全局参数上，并且不影响到组外的对象：
+分組操作允許你對當前組使用參數——這些參數會疊加到全局參數上，並且不影響到組外的對象：
 \begin{tikzshowenvi}
 \begin{tikzpicture}[red, very thick, scale=.5]
 \draw (1,0) circle [radius=1];
@@ -363,22 +363,22 @@ xelatex -shell-escape example.tex
 \end{tikzpicture}
 \end{tikzshowenvi}
 
-\subsection{画布大小}
+\subsection{畫布大小}
 命令 \latexline{useasboundingbox} 可以
 
-\section{点（node）与文本}
+\section{點（node）與文本}
 
-\subsection{点的坐标指定}
-使用 \latexline{coordinate} 命令给点命名，便于之后引用。
+\subsection{點的座標指定}
+使用 \latexline{coordinate} 命令給點命名，便於之後引用。
 \begin{tikzshow}
 \coordinate (A) at (1,0);
 \coordinate (B) at (1,1);
 \draw (0,0) -- (A) circle[radius=.5] -- (B) -- cycle;
 \end{tikzshow}
-\tikzkw{coordinate} 也可以在绘制命令中作为选项使用。
+\tikzkw{coordinate} 也可以在繪製命令中作為選項使用。
 
-\subsection{点的基本命令}
-如需显式地绘制点（即占有面积的点），使用 \latexline{node} 命令，或者 \latexline{path} 命令的 \tikzkw{node} 选项，并配合 \tikzkw{draw} 选项。选项 \tikzkw{shape} 用于指定点的绘制方式。
+\subsection{點的基本命令}
+如需顯式地繪製點（即佔有面積的點），使用 \latexline{node} 命令，或者 \latexline{path} 命令的 \tikzkw{node} 選項，並配合 \tikzkw{draw} 選項。選項 \tikzkw{shape} 用於指定點的繪製方式。
 \begin{tikzshow}
 \node at (0,0) [shape=circle, draw] (C) {$p_C$};
 \node at (1,0) [rectangle, draw, fill=red] {};
@@ -386,10 +386,10 @@ xelatex -shell-escape example.tex
      (1,.5) node[draw] (B) {$p_B$};
 \draw (A) -- (B) -- (C);
 \end{tikzshow}
-选项 \tikzkw{shape} 还可赋值为 \texttt{coordinate}，这样在点之间连线时会从点中心开始绘制；但我建议此时直接使用 \tikzkw{coordinate} 命令。
+選項 \tikzkw{shape} 還可賦值為 \texttt{coordinate}，這樣在點之間連線時會從點中心開始繪製；但我建議此時直接使用 \tikzkw{coordinate} 命令。
 
-\subsubsection{点的锚点（anchor）}
-使用 \tikzkw{anchor} 选项定义锚点位置，可传入的值是 4 个基本方位（east, west, south, north）、4 个复合方位（south west 等），以及 center。或者你可以依次用 left, right, above, below 来替代四个基本方位：
+\subsubsection{點的錨點（anchor）}
+使用 \tikzkw{anchor} 選項定義錨點位置，可傳入的值是 4 個基本方位（east, west, south, north）、4 個複合方位（south west 等），以及 center。或者你可以依次用 left, right, above, below 來替代四個基本方位：
 \begin{tikzshow}
 \draw[help lines] (0,0) grid (2,2);
 \draw (0,0) node [anchor=south west] {$\beta$};
@@ -397,9 +397,9 @@ xelatex -shell-escape example.tex
 \node at (1,0) [above=2pt] {Hi};
 \draw (1,2) node [below right=1pt and 8pt] {$1,0$};
 \end{tikzshow}
-其中，如果像最后一行给出双距离参数，需加载 \pkg{positioning} 库。
+其中，如果像最後一行給出雙距離參數，需加載 \pkg{positioning} 庫。
 
-也可以直接用数字指定 \tikzkw{anchor} 的角度，\tikzz\ 会自动定位到点边界上对应角度的位置：
+也可以直接用數字指定 \tikzkw{anchor} 的角度，\tikzz\ 會自動定位到點邊界上對應角度的位置：
 \begin{tikzshow}
 \draw (0,0) circle [radius=1];
 \foreach \x in {1,...,12} {
@@ -407,15 +407,15 @@ xelatex -shell-escape example.tex
 }
 \end{tikzshow}
 
-点的命名类似 \latexline{coordinate} 的用法：
+點的命名類似 \latexline{coordinate} 的用法：
 \begin{tikzshow}
 \path node (a) at (0,0) {}
       node (b) at (1,0) {};
 \draw (a) -- (b);
 \end{tikzshow}
 
-\subsubsection{点的尺寸}
-点的大小用 \tikzkw{inner sep} 指定文字到点边框的距离，用 \tikzkw{minimum size} 指定边框的最小尺寸。也可以配合 \tikzkw{text width} 选项指定文本的每行宽度。
+\subsubsection{點的尺寸}
+點的大小用 \tikzkw{inner sep} 指定文字到點邊框的距離，用 \tikzkw{minimum size} 指定邊框的最小尺寸。也可以配合 \tikzkw{text width} 選項指定文本的每行寬度。
 \begin{tikzshow}
 \tikzset{every node/.style={draw, circle}}
 \node (a) {a};
@@ -424,10 +424,10 @@ xelatex -shell-escape example.tex
 \node[xshift=1cm, minimum size=8pt] (d) {d};
 \node[shift={(1,1)}, minimum size=8pt, inner sep=0pt] (e) {e};
 \end{tikzshow}
-注意点 \(d\) 和点 \(e\) 的区别。
+注意點 \(d\) 和點 \(e\) 的區別。
 
-\subsection{点的相对放置}
-点的相对放置有两种方式。其一如下例，双距离语句需要 \pkg{positioning} 库。
+\subsection{點的相對放置}
+點的相對放置有兩種方式。其一如下例，雙距離語句需要 \pkg{positioning} 庫。
 \begin{tikzshow}
 \tikzset{every node/.style={draw, circle}}
 \draw[help lines] (0,0) grid (3,3);
@@ -437,25 +437,25 @@ xelatex -shell-escape example.tex
 \node (d) [below=.5cm of c, on grid] {d};
 \draw[red] (b) rectangle (d);
 \end{tikzshow}
-\tikzkw{on grid} 选项表示从边框而不是点中心开始计算距离，因此 \(b\) 与 \(d\) 的纵坐标不同。另一种方式是使用方位词结合点的名称，组成 \texttt{点名\mbox{.}方位词} 的语法：
+\tikzkw{on grid} 選項表示從邊框而不是點中心開始計算距離，因此 \(b\) 與 \(d\) 的縱座標不同。另一種方式是使用方位詞結合點的名稱，組成 \texttt{點名\mbox{.}方位詞} 的語法：
 \begin{tikzshow}
 \node (a) {a};
 \node[above] (aa) at (a.north) {a.north};
 \end{tikzshow}
-上例中的 \tikzkw{above} 选项不是必须的，但往往添加以避免点间的覆盖。
+上例中的 \tikzkw{above} 選項不是必須的，但往往添加以避免點間的覆蓋。
 
-\subsection{点的旁置文本（label/pin）}
-旁置文本（或标签）可用上一节的语法画另一个点来实现，但 \tikzkw{label} 或 \tikzkw{pin} 选项更简洁，会直接在主点旁画一个旁置点。对同一个主点画多个 \tikzkw{label} 或 \tikzkw{pin} 都是允许的；它们的区别在于后者会在主点和旁置点之间连一条线。
+\subsection{點的旁置文本（label/pin）}
+旁置文本（或標籤）可用上一節的語法畫另一個點來實現，但 \tikzkw{label} 或 \tikzkw{pin} 選項更簡潔，會直接在主點旁畫一個旁置點。對同一個主點畫多個 \tikzkw{label} 或 \tikzkw{pin} 都是允許的；它們的區別在於後者會在主點和旁置點之間連一條線。
 
-标签位置的语法是 \texttt{角度\mbox{:}文本}——它还有一个特殊的角度参数 \texttt{center}，会将标签放在主点的中心处。你也可以通过 \tikzkw{label distance} 或 \tikzkw{pin distance} 选项来指定距离。
+標籤位置的語法是 \texttt{角度\mbox{:}文本}——它還有一個特殊的角度參數 \texttt{center}，會將標籤放在主點的中心處。你也可以通過 \tikzkw{label distance} 或 \tikzkw{pin distance} 選項來指定距離。
 \begin{tikzshow}[every node/.style={draw, circle}]
 \draw node[pin={[pin distance=.2cm, pin edge={<-, thick}]above right:$a_{p}$}] (a) at (0,0) {a} 
 node[label={[red]30:$b'$}] (b) at (0,1) {b} 
 node[label=120:$c'$, label=below:$c''$] (c) at (1.5,1) {c};
 \end{tikzshow}
-上例中甚至给 \tikzkw{label} 传入了颜色参数。还可以使用 \texttt{every pin, every pin edge} 或 \texttt{every label} 样式设定默认值。
+上例中甚至給 \tikzkw{label} 傳入了顏色參數。還可以使用 \texttt{every pin, every pin edge} 或 \texttt{every label} 樣式設定默認值。
 
-当点被旋转时，参数 \tikzkw{absolute} 可以帮助你定位。如果它的值是 \texttt{true} 或缺省，那么方向不会跟随点而旋转，而是始终以纸面做参照：
+當點被旋轉時，參數 \tikzkw{absolute} 可以幫助你定位。如果它的值是 \texttt{true} 或缺省，那麼方向不會跟隨點而旋轉，而是始終以紙面做參照：
 \begin{tikzshow}
 \tikzset{
     every node/.style={draw, rectangle},
@@ -466,33 +466,33 @@ node[label=120:$c'$, label=below:$c''$] (c) at (1.5,1) {c};
 \node[rotate=-80,label={[absolute]right:label}] (b) at (1,0) {absolute};
 \draw[blue, thick] (1,0) -- +(0:1);
 \end{tikzshow}
-左侧标签的锚点（位于红色矩形的左侧边上）在点“normal”右侧边框的中点，而右侧标签的锚点则位于穿过点“absolute”中心的水平向右的线上。\RED{上例中出现了方括号嵌套时，不要忘记添加花括号}。
+左側標籤的錨點（位於紅色矩形的左側邊上）在點“normal”右側邊框的中點，而右側標籤的錨點則位於穿過點“absolute”中心的水平向右的線上。\RED{上例中出現了方括號嵌套時，不要忘記添加花括號}。
 
-\subsection{点的沿路径文本}
-\subsubsection{显示指定}
-将 \tikzkw{node} 选项放于对应的点坐标之后，称为显示（explicitly）指定。
+\subsection{點的沿路徑文本}
+\subsubsection{顯示指定}
+將 \tikzkw{node} 選項放於對應的點座標之後，稱為顯示（explicitly）指定。
 
-对于沿路径的文本标记，\tikzz\ 预定义了 7 种位置，分别是 \tikzkw{at start/end}, \tikzkw{(very) near start/end}，以及缺省时的 \tikzkw{midway}。
+對於沿路徑的文本標記，\tikzz\ 預定義了 7 種位置，分別是 \tikzkw{at start/end}, \tikzkw{(very) near start/end}，以及缺省時的 \tikzkw{midway}。
 \begin{tikzshow}
 \draw (0,0) .. controls (.5,2) .. (1.5,2)
   node[at start] {at start}
   node[midway, sloped, above] {midway}
   node[pos=1, right, text width=3ex] {at end};
 \end{tikzshow}
-上例中的一些参数：
+上例中的一些參數：
 \begin{para}
-\item[sloped] 设置文字基线与图中此处的切线平行。
-\item[pos] 定量化的位置参数\footnote{并不是严格的空间分点；而是基于首、尾、控制点间向量计算出速度，取其时间分点。很难精确指定。}。比如预定义的 \tikzkw{very near start} 即为 \(0.125\)，\tikzkw{near start} 即为 \(0.25\)。
+\item[sloped] 設置文字基線與圖中此處的切線平行。
+\item[pos] 定量化的位置參數\footnote{並不是嚴格的空間分點；而是基於首、尾、控制點間向量計算出速度，取其時間分點。很難精確指定。}。比如預定義的 \tikzkw{very near start} 即為 \(0.125\)，\tikzkw{near start} 即為 \(0.25\)。
 \end{para}
 
-对于交点指定（\tikzkw{|-} 或 \tikzkw{-|}），中点（\tikzkw{midway}）即为垂足：
+對於交點指定（\tikzkw{|-} 或 \tikzkw{-|}），中點（\tikzkw{midway}）即為垂足：
 \begin{tikzshow}
 \draw (0,0) |- (2,1) \foreach \p in {0,0.5,1} {
   node[pos=\p] {\p}
 };
 \end{tikzshow}
 
-不同位置放置文本的场合，使用 \tikzkw{auto} 选项，并可以设定 \texttt{left} 或者 \texttt{right} 参数；选项 \tikzkw{swap} 则允许你将其文本放在对称位置。注意：这两个选项\RED{只对沿路径的放置有效}。
+不同位置放置文本的場合，使用 \tikzkw{auto} 選項，並可以設定 \texttt{left} 或者 \texttt{right} 參數；選項 \tikzkw{swap} 則允許你將其文本放在對稱位置。注意：這兩個選項\RED{只對沿路徑的放置有效}。
 \begin{tikzshow}[scale=.5, every node/.style={circle, inner sep=2pt}]
 \foreach \x in {1,...,4} {
   \draw (90-90*\x:2) -- (-90*\x:2)
@@ -501,8 +501,8 @@ node[label=120:$c'$, label=below:$c''$] (c) at (1.5,1) {c};
 }
 \end{tikzshow}
 
-\subsubsection{隐式指定}
-路径里点的位置可以隐式（implicitly）指定，放在 \texttt{--} 命令与要连接的点之间即可。只有隐式指定的点才会继承全局参数（因此隐式指定往往可以省略一些参数，比如 \tikzkw{midway}）。例子\cite{tikzmanual}：
+\subsubsection{隱式指定}
+路徑裏點的位置可以隱式（implicitly）指定，放在 \texttt{--} 命令與要連接的點之間即可。只有隱式指定的點才會繼承全局參數（因此隱式指定往往可以省略一些參數，比如 \tikzkw{midway}）。例子\cite{tikzmanual}：
 \begin{tikzshowenvi}
 \begin{tikzpicture}[near end]
 \draw (0,2.5) -- (3,2.5) node{A};
@@ -511,16 +511,16 @@ node[label=120:$c'$, label=below:$c''$] (c) at (1.5,1) {c};
 \draw (0,1) -- (3,1) node[midway] {D} ;
 \end{tikzpicture}
 \end{tikzshowenvi}
-将上述代码中的 \tikzkw{--} 换成 \tikzkw{to} 也可以；通常后者是个更强的命令，在下一节中也会介绍。
+將上述代碼中的 \tikzkw{--} 換成 \tikzkw{to} 也可以；通常後者是個更強的命令，在下一節中也會介紹。
 
-\subsection{点之间的连线}
+\subsection{點之間的連線}
 \label{subsec:connectingnodes}
-\subsubsection{基础连线}
-点之间连线会自动检测点的绘制边界，主要要三种操作方式：
+\subsubsection{基礎連線}
+點之間連線會自動檢測點的繪製邊界，主要要三種操作方式：
 \begin{enumerate}
-\item 在点名称后增加小数点和方位词来指定，比如点 a 的左侧就用 \texttt{(a.west)}；
-\item 使用 \texttt{to} 代替 \texttt{--}，并附加 \tikzkw{out} 与 \tikzkw{in} 选项。（如果不附加则会画直线）
-\item 使用 \texttt{to} 附加 \tikzkw{bend left/right} 选项。下例中最后一行以 a 到 b 直线方向为角度 0，\texttt{bend left=45} 表示逆时针旋转 $45$ 度作为 \tikzkw{out} 值，旋转 $180-45=135$ 度作为 \tikzkw{in} 值。
+\item 在點名稱後增加小數點和方位詞來指定，比如點 a 的左側就用 \texttt{(a.west)}；
+\item 使用 \texttt{to} 代替 \texttt{--}，並附加 \tikzkw{out} 與 \tikzkw{in} 選項。（如果不附加則會畫直線）
+\item 使用 \texttt{to} 附加 \tikzkw{bend left/right} 選項。下例中最後一行以 a 到 b 直線方向為角度 0，\texttt{bend left=45} 表示逆時針旋轉 $45$ 度作為 \tikzkw{out} 值，旋轉 $180-45=135$ 度作為 \tikzkw{in} 值。
 \end{enumerate}
 \begin{tikzshow}
 \tikzset{every node/.style={draw,circle}}
@@ -532,10 +532,10 @@ node[label=120:$c'$, label=below:$c''$] (c) at (1.5,1) {c};
 \draw[->] (a) to [bend left=45] (b);
 \end{tikzshow}
 
-\subsubsection{绘制到命令（to）}
-除了上面提到的 \tikzkw{to} 命令的用法，它还有以下灵活的使用方式:
+\subsubsection{繪製到命令（to）}
+除了上面提到的 \tikzkw{to} 命令的用法，它還有以下靈活的使用方式:
 
-使用 \tikzkw{edge node} 来给点之间的连接线添加文本。但更好用的是 \tikzkw{edge label} 命令，表示以 \tikzkw{auto} 选项来自动放置文本；如果换成 \tikzkw{edge label'}，则表示以 \tikzkw{auto, swap} 选项放置。
+使用 \tikzkw{edge node} 來給點之間的連接線添加文本。但更好用的是 \tikzkw{edge label} 命令，表示以 \tikzkw{auto} 選項來自動放置文本；如果換成 \tikzkw{edge label'}，則表示以 \tikzkw{auto, swap} 選項放置。
 \begin{tikzshow}
 \coordinate (a);
 \coordinate (b) at ($ (a)+(2,1) $);
@@ -543,7 +543,7 @@ node[label=120:$c'$, label=below:$c''$] (c) at (1.5,1) {c};
 \draw (a) to[color=red, bend right=45, edge label=auto, edge label'=swap] (b);
 \end{tikzshow}
 
-最后，该命令允许用户以 \tikzkw{to path} 选项来指定绘制方式，并用 \latexline{tikztostart} 表示当前 \tikzkw{to} 命令的起始点，\latexline{tikztotarget} 表示终止点，\latexline{tikztonodes} 表示绘制路径时伴随的点（可省略）。实质上是添加了一个路径分组（花括号内的选项不会应用到外部）：
+最後，該命令允許用户以 \tikzkw{to path} 選項來指定繪製方式，並用 \latexline{tikztostart} 表示當前 \tikzkw{to} 命令的起始點，\latexline{tikztotarget} 表示終止點，\latexline{tikztonodes} 表示繪製路徑時伴隨的點（可省略）。實質上是添加了一個路徑分組（花括號內的選項不會應用到外部）：
 \begin{latex}
 {[every to, <options>] <path>}
 \end{latex}
@@ -556,17 +556,17 @@ node[label=120:$c'$, label=below:$c''$] (c) at (1.5,1) {c};
 \node[below=of b] (c) {$c$};
 \draw[->] (a) edge (b) (b) edge[selfloop] node[above] {Hi} (b)  edge (c);
 \end{tikzshow}
-你可能注意到，上例中虽然定义了 \tikzkw{to path}，但使用了 \tikzkw{edge} 而不是 \tikzkw{to}；实质上两者的语法有相近之处，但使用 \tikzkw{to} 会导致只有最后一条子路径有箭头。
+你可能注意到，上例中雖然定義了 \tikzkw{to path}，但使用了 \tikzkw{edge} 而不是 \tikzkw{to}；實質上兩者的語法有相近之處，但使用 \tikzkw{to} 會導致只有最後一條子路徑有箭頭。
 
-库 \pkg{topaths} 定义了一些实用的样式，比如在上例中就可以直接使用它预定义 \tikzkw{loop above}。
+庫 \pkg{topaths} 定義了一些實用的樣式，比如在上例中就可以直接使用它預定義 \tikzkw{loop above}。
 
-\subsubsection{边命令（edge）}
-边命令的底层形式是，其中 \verb|<path>| 与 \tikzkw{to} 格式相同：
+\subsubsection{邊命令（edge）}
+邊命令的底層形式是，其中 \verb|<path>| 與 \tikzkw{to} 格式相同：
 \begin{latex}
 \path[every edge, <options>] (\tikztostart) <path>
 \end{latex}
 
-因此它将绘制包含同一个点（即 \texttt{\char`\\tikztostart}）的所有边。当你想要给每个点的边进行定制时，这会十分有用：
+因此它將繪製包含同一個點（即 \texttt{\char`\\tikztostart}）的所有邊。當你想要給每個點的邊進行定製時，這會十分有用：
 \begin{tikzshow}
 \tikzset{every node/.style={draw,circle}}
 \node (a) {a};
@@ -576,9 +576,9 @@ node[label=120:$c'$, label=below:$c''$] (c) at (1.5,1) {c};
     edge[bend left=45] (a)
     edge[blue, <-] (a);
 \end{tikzshow}
-提醒一下那些熟悉图论的读者：别忘了尽管最后一行中边的箭头方向是从 a 到 c 的，但仍可以像上面一样用 c 点的 \tikzkw{edge} 命令来绘制。
+提醒一下那些熟悉圖論的讀者：別忘了儘管最後一行中邊的箭頭方向是從 a 到 c 的，但仍可以像上面一樣用 c 點的 \tikzkw{edge} 命令來繪製。
 
-你还可以连写边命令，并沿边加上文字：
+你還可以連寫邊命令，並沿邊加上文字：
 \begin{tikzshow}
 \node foreach \name/\angle in {a/0,b/90,c/180,d/270}
     (\name) at (\angle:1.5) {$\name$};
@@ -590,24 +590,24 @@ node[label=120:$c'$, label=below:$c''$] (c) at (1.5,1) {c};
 (d) edge [red] node[above,sloped] {very}
   node[below,sloped] {red} (a);
 \end{tikzshow}
-这里用到了之前提及的 \tikzkw{auto} 命令。注意，只要 \tikzkw{path} 命令指定了箭头选项，\tikzkw{edge} 命令绘制的每条边都有箭头。
+這裏用到了之前提及的 \tikzkw{auto} 命令。注意，只要 \tikzkw{path} 命令指定了箭頭選項，\tikzkw{edge} 命令繪製的每條邊都有箭頭。
 
-\subsection{点与画布的缩放}
+\subsection{點與畫布的縮放}
 \label{subsec:nodescaling}
 
 
-\subsection{作为图像的点（pic）*}
-一段绘图代码可能需要复用；如果它比较复杂，可以使用 \latexline{pic} 来重复调用。
+\subsection{作為圖像的點（pic）*}
+一段繪圖代碼可能需要複用；如果它比較複雜，可以使用 \latexline{pic} 來重複調用。
 \begin{tikzshow}[scale=0.8]
 \tikzset{dcircle/.pic={\draw (0,0) circle [x radius=.5, y radius=.8] circle [radius=1];}}
-% 两种调用方式
+% 兩種調用方式
 \draw[help lines] (0,-1) grid (2,2);
 \pic at (0,0) {dcircle}; 
 \path (2,0) pic {dcircle};
 \end{tikzshow}
-语法非常类似 \tikzkw{node}。其中 \tikzkw{at} 也可以写成 \texttt{[at=\{(0,0)\}]} 这种形式。
+語法非常類似 \tikzkw{node}。其中 \tikzkw{at} 也可以寫成 \texttt{[at=\{(0,0)\}]} 這種形式。
 
-\tikzkw{pic actions} 选项用于传入 \texttt{draw, fill, shade, 或 clip} 参数：
+\tikzkw{pic actions} 選項用於傳入 \texttt{draw, fill, shade, 或 clip} 參數：
 \begin{tikzshow}[scale=0.6, transform shape]
 \tikzset{circlerect/.pic = {
     \path[pic actions] (.5,.5) circle [radius=.3];
@@ -617,9 +617,9 @@ node[label=120:$c'$, label=below:$c''$] (c) at (1.5,1) {c};
 \pic [blue, thick] at (.5,.5) {circlerect};
 \pic [draw=blue, fill=white] at (2.5,.5) {circlerect};
 \end{tikzshow} 
-当不传入 \tikzkw{draw} 选项时，圆的 \latexline{path} 命令是不会绘制的；同时注意，因为绘制矩形的是 \latexline{draw} 命令，因此不受\tikzkw{fill} 选项影响。
+當不傳入 \tikzkw{draw} 選項時，圓的 \latexline{path} 命令是不會繪製的；同時注意，因為繪製矩形的是 \latexline{draw} 命令，因此不受\tikzkw{fill} 選項影響。
 
-插入的 \tikzkw{pic} 中的点可以在外部调用，一个例子：
+插入的 \tikzkw{pic} 中的點可以在外部調用，一個例子：
 \begin{tikzshow}
 \tikzset{mypic/.pic={
   \draw[blue] (0,0) coordinate (-A)
@@ -631,9 +631,9 @@ node[label=120:$c'$, label=below:$c''$] (c) at (1.5,1) {c};
 \pic (Q) at (0,1) {mypic};
 \draw[red] (P-A) -- (Q-B);
 \end{tikzshow}
-\tikzkw{pic} 定义时用短横命名是为了可读性。调用时语法类似 \tikzkw{node}。
+\tikzkw{pic} 定義時用短橫命名是為了可讀性。調用時語法類似 \tikzkw{node}。
 
-\pkg{quotes} 库支持以加引号字串的方式传入参数，作为 \tikzkw{pic text} 选项的值。比如 \texttt{angles} 这个预定义的 \tikzkw{pic}（由 \pkg{angle} 库支持）：
+\pkg{quotes} 庫支持以加引號字串的方式傳入參數，作為 \tikzkw{pic text} 選項的值。比如 \texttt{angles} 這個預定義的 \tikzkw{pic}（由 \pkg{angle} 庫支持）：
 \begin{tikzshow}
 \draw (0,-1) coordinate (P1)
   -- (0,0) coordinate (O)
@@ -643,11 +643,11 @@ node[label=120:$c'$, label=below:$c''$] (c) at (1.5,1) {c};
 
 一些其他注意：
 \begin{feai}
-\item 如果有 \texttt{foreach} 语句，\textbf{请放在 \texttt{pic} 定义的首行} 。
-\item \tikzkw{pic} 虽说从用法上近似 \tikzkw{node}，实质上它是以类似 \tikzz\ \envi{scope} 环境的方式工作的。因此，如果想要其外部的图像变换对其生效，须添加 \tikzkw{transform shape} 选项于 \envi{tikzpicture} 环境。
-\item \tikzkw{pic} 对象也能像 \tikzkw{node} 一样，沿路径放置，设置 \tikzkw{at start} 等选项。
-\item 将 \tikzkw{pic} 作为选项使用时，添加 \tikzkw{behind path} 或者 \tikzkw{in front of path} 来指定将 \tikzkw{pic} 插入到所在路径的下方或是上方图层。
-\item 如果你只是临时使用而不想额外定义，这里有一个使用 \tikzkw{code} 选项的例子\cite{tikzmanual}：
+\item 如果有 \texttt{foreach} 語句，\textbf{請放在 \texttt{pic} 定義的首行} 。
+\item \tikzkw{pic} 雖説從用法上近似 \tikzkw{node}，實質上它是以類似 \tikzz\ \envi{scope} 環境的方式工作的。因此，如果想要其外部的圖像變換對其生效，須添加 \tikzkw{transform shape} 選項於 \envi{tikzpicture} 環境。
+\item \tikzkw{pic} 對象也能像 \tikzkw{node} 一樣，沿路徑放置，設置 \tikzkw{at start} 等選項。
+\item 將 \tikzkw{pic} 作為選項使用時，添加 \tikzkw{behind path} 或者 \tikzkw{in front of path} 來指定將 \tikzkw{pic} 插入到所在路徑的下方或是上方圖層。
+\item 如果你只是臨時使用而不想額外定義，這裏有一個使用 \tikzkw{code} 選項的例子\cite{tikzmanual}：
 \begin{tikzshow}
 \draw (0,0) .. controls(1,0) and (2,1) .. (3,1)
 foreach \t in {0, 0.1, ..., 1} {
@@ -656,13 +656,13 @@ foreach \t in {0, 0.1, ..., 1} {
   }
 };
 \end{tikzshow}
-注意，本例只有一句语句。句中 \tikzkw{pic} 是 \latexline{draw} 命令的选项。
+注意，本例只有一句語句。句中 \tikzkw{pic} 是 \latexline{draw} 命令的選項。
 \end{feai}
 
-\section{路径（path）}
-虽然我们不常直接使用 \latexline{path} 命令，而是使用它的变体 \latexline{draw} 等，但是我们仍然需要介绍一些它的特性。
+\section{路徑（path）}
+雖然我們不常直接使用 \latexline{path} 命令，而是使用它的變體 \latexline{draw} 等，但是我們仍然需要介紹一些它的特性。
 
-最常用的情景就是只声明点，但却不显示地绘制它们：
+最常用的情景就是隻聲明點，但卻不顯示地繪製它們：
 \begin{tikzshow}
 \path coordinate (a)
      coordinate[right=of a] (b)
@@ -670,28 +670,28 @@ foreach \t in {0, 0.1, ..., 1} {
 \draw (a) -- (b) -- (c) -- cycle;
 \end{tikzshow}
 
-特别指明，点命令（\tikzkw{node} 或者 \tikzkw{coordinate}）总是在路径绘制结束后再绘制的；它们不是路径的一部分。
+特別指明，點命令（\tikzkw{node} 或者 \tikzkw{coordinate}）總是在路徑繪製結束後再繪製的；它們不是路徑的一部分。
 
-以下路径命令已在上文（或将在其他小节）进行介绍：
+以下路徑命令已在上文（或將在其他小節）進行介紹：
 \begin{description}
-\item[移动（move-to）指令] 隐式。如 \verb|draw (a) -- (b) (c) -- (d)|，在 b 与 c 间即为移动指令。
-\item[直线（line-to）指令] 包括直线指令 \tikzkw{--} 与水平竖直线指令 \tikzkw{|-} 和 \tikzkw{-|}。
-\item[曲线（curve-to）指令] 即绘制 \bz\ 曲线的 \tikzkw{.. controls ..} 指令。
-\item[绘制到（to）指令] 上文介绍过 \tikzkw{to} 配合 \tikzkw{out, in, bent left} 等命令的用法，参考前文\secref{subsec:connectingnodes}。它实际将指令解释为以上三种指令之一。
-\item[几何形状指令] 包括圆或椭圆 \tikzkw{circle}、矩形 \tikzkw{rectangle} 与弧 \tikzkw{arc} 指令。
-\item[函数指令*] 包括抛物线 \tikzkw{parabola}、正弦 \tikzkw{sin} 与余弦 \tikzkw{cos} 指令。更复杂的函数会在
-\item[网格指令] 即 \tikzkw{grid} 指令。
-\item[圆角指令*] 即 \tikzkw{rounded corners} 与 \tikzkw{sharp corners} 指令。
-\item[循环指令] 即 \tikzkw{foreach} 指令，具体可参考\secref{subsec:foreach}部分。
-\item[暂存指令] 即 \tikzkw{let} 指令，将数据暂存以供语句之后调用。参考\secref{subsec:nodesdistance}部分。
-\item[图指令*] 即 \tikzkw{graph} 指令，绘制图、树、网络的命令。参考\secref{sec:network}部分。
-\item[图像指令*] 即 \tikzkw{pic} 命令，
+\item[移動（move-to）指令] 隱式。如 \verb|draw (a) -- (b) (c) -- (d)|，在 b 與 c 間即為移動指令。
+\item[直線（line-to）指令] 包括直線指令 \tikzkw{--} 與水平豎直線指令 \tikzkw{|-} 和 \tikzkw{-|}。
+\item[曲線（curve-to）指令] 即繪製 \bz\ 曲線的 \tikzkw{.. controls ..} 指令。
+\item[繪製到（to）指令] 上文介紹過 \tikzkw{to} 配合 \tikzkw{out, in, bent left} 等命令的用法，參考前文\secref{subsec:connectingnodes}。它實際將指令解釋為以上三種指令之一。
+\item[幾何形狀指令] 包括圓或橢圓 \tikzkw{circle}、矩形 \tikzkw{rectangle} 與弧 \tikzkw{arc} 指令。
+\item[函數指令*] 包括拋物線 \tikzkw{parabola}、正弦 \tikzkw{sin} 與餘弦 \tikzkw{cos} 指令。更復雜的函數會在
+\item[網格指令] 即 \tikzkw{grid} 指令。
+\item[圓角指令*] 即 \tikzkw{rounded corners} 與 \tikzkw{sharp corners} 指令。
+\item[循環指令] 即 \tikzkw{foreach} 指令，具體可參考\secref{subsec:foreach}部分。
+\item[暫存指令] 即 \tikzkw{let} 指令，將數據暫存以供語句之後調用。參考\secref{subsec:nodesdistance}部分。
+\item[圖指令*] 即 \tikzkw{graph} 指令，繪製圖、樹、網絡的命令。參考\secref{sec:network}部分。
+\item[圖像指令*] 即 \tikzkw{pic} 命令，
 \end{description}
 
-本节会介绍除上述指令外的其他路径指令。
+本節會介紹除上述指令外的其他路徑指令。
 
-\subsection{路径分组}
-类似与 \envi{scope} 环境，\tikzz\ 允许在路径中创建一个“分组”，分组中的选项不会影响到分组外部的内容。只需要将想要建立分组的部分用花括号包围即可：
+\subsection{路徑分組}
+類似與 \envi{scope} 環境，\tikzz\ 允許在路徑中創建一個“分組”，分組中的選項不會影響到分組外部的內容。只需要將想要建立分組的部分用花括號包圍即可：
 \begin{tikzshow}
 \path coordinate (a)
      coordinate[right=of a] (b)
@@ -699,20 +699,20 @@ foreach \t in {0, 0.1, ..., 1} {
      coordinate[left=of c] (d);
 \draw (a) -- (b) {[rounded corners] -- (c) -- (d) {[sharp corners] -- cycle}};
 \end{tikzshow}
-注意，并不是所有参数都支持分组。例如，每条路径只能有一个颜色，因此在分组中指定另一种颜色是无效的。
+注意，並不是所有參數都支持分組。例如，每條路徑只能有一個顏色，因此在分組中指定另一種顏色是無效的。
 
 \subsection{SVG 指令*}
-加载 \pkg{svg.path} 库后，路径中的 \tikzkw{SVG} 选项允许你使用类似网页 \texttt{HTML} 中 \texttt{SVG} 的语法进行绘制。这里不再详细对 SVG 语法做说明，仅给出一个例子：
+加載 \pkg{svg.path} 庫後，路徑中的 \tikzkw{SVG} 選項允許你使用類似網頁 \texttt{HTML} 中 \texttt{SVG} 的語法進行繪製。這裏不再詳細對 SVG 語法做説明，僅給出一個例子：
 \begin{tikzshow}
 \draw[fill=red!50] svg {M 0 0 L 10 10 h 20 v -10} -- cycle;
 \end{tikzshow}
-该库只支持真正的 \texttt{SVG} 指令集的主要部分，并不是完全涵盖。
+該庫只支持真正的 \texttt{SVG} 指令集的主要部分，並不是完全涵蓋。
 
-\subsection{绘图指令（plot）}
-该指令用于绘制点较多的图，也可以从外部文件读取。
+\subsection{繪圖指令（plot）}
+該指令用於繪製點較多的圖，也可以從外部文件讀取。
 
-\subsection{计算指令（pgfextra）}
-该指令只能用于路径命令内部，运行到此处时路径绘制会挂起，直到运行完该命令内部的部分再继续绘制。一个例子：
+\subsection{計算指令（pgfextra）}
+該指令只能用於路徑命令內部，運行到此處時路徑繪製會掛起，直到運行完該命令內部的部分再繼續繪製。一個例子：
 \begin{tikzshow}
 \newdimen\myloc
 \myloc=0cm
@@ -720,11 +720,11 @@ foreach \t in {0, 0.1, ..., 1} {
     circle [radius=\myloc] -- (0,1);
 \end{tikzshow}
 
-\section{数学绘制：几何与函数图像}
-严格的几何学绘图需要一些特别的命令，比如计算两点间的距离。而且，通常会使用 \tikzkw{coordinate} 而不是 \tikzkw{node} 命令；因为前者并不占用面积，这样画线时才能保证抵达点所在的中心坐标。
+\section{數學繪製：幾何與函數圖像}
+嚴格的幾何學繪圖需要一些特別的命令，比如計算兩點間的距離。而且，通常會使用 \tikzkw{coordinate} 而不是 \tikzkw{node} 命令；因為前者並不佔用面積，這樣畫線時才能保證抵達點所在的中心座標。
 
-\subsection{坐标计算}
-库 \pkg{calc} 允许用户使用 \texttt{\$ ... \$} 的形式来计算，并放在一对圆括号中作为坐标：
+\subsection{座標計算}
+庫 \pkg{calc} 允許用户使用 \texttt{\$ ... \$} 的形式來計算，並放在一對圓括號中作為座標：
 \begin{tikzshow}
 \coordinate[label=below:A] (A);
 \coordinate[above right=.5 and 1.5 of A, label=right:B] (B);
@@ -732,9 +732,9 @@ foreach \t in {0, 0.1, ..., 1} {
 \draw ($ (A) + (.3,.4) $) circle (.5);
 \end{tikzshow}
 
-\subsection{两点距离计算}
+\subsection{兩點距離計算}
 \label{subsec:nodesdistance}
-上一节中的半径值是人工计算的。下例让 \tikzz\ 计算距离，并用 \tikzkw{let} 选项将其储存起来，在 \tikzkw{in} 选项的后方进行调用：
+上一節中的半徑值是人工計算的。下例讓 \tikzz\ 計算距離，並用 \tikzkw{let} 選項將其儲存起來，在 \tikzkw{in} 選項的後方進行調用：
 \begin{tikzshow}[scale=0.6, transform shape]
 \coordinate[label=left:A] (A);
 \coordinate[above right=.5 and 1.5 of A, label=right:B] (B);
@@ -744,13 +744,13 @@ foreach \t in {0, 0.1, ..., 1} {
       in (B) circle[radius=\n{rad}]
          (A) circle[radius=\n{rad}];
 \end{tikzshow}
-命令 \verb|\p<数字>| 用于存储向量计算结果，比如 \verb|\p1|。对应的，使用 \verb|\x1| 或者 \verb|\y1| 可以调用向量的两个坐标值。而 \verb|\n<数字>| 则用于存储数值。此外，命令 \tikzkw{veclen} 用于计算向量的欧式长度 \(\sqrt{x^2+y^2}\)。  
+命令 \verb|\p<數字>| 用於存儲向量計算結果，比如 \verb|\p1|。對應的，使用 \verb|\x1| 或者 \verb|\y1| 可以調用向量的兩個座標值。而 \verb|\n<數字>| 則用於存儲數值。此外，命令 \tikzkw{veclen} 用於計算向量的歐式長度 \(\sqrt{x^2+y^2}\)。  
 
-如果不想使用数字命名，可以像上例的存储数值一样使用字符串；不过这样命名需要加上花括号。事实上，已知圆心 $A$ 和圆周上一点 $B$，有更简单的画圆方法，参考\secref{subsec:circlethrough}部分的内容。
+如果不想使用數字命名，可以像上例的存儲數值一樣使用字符串；不過這樣命名需要加上花括號。事實上，已知圓心 $A$ 和圓周上一點 $B$，有更簡單的畫圓方法，參考\secref{subsec:circlethrough}部分的內容。
 
-\subsection{$\lambda$分点与垂线}
-\subsubsection{比例分点}
-分点是几何中常用的概念，\pkg{calc} 库支持像 \pkg{xcolor} 混合颜色类似的命令：\verb|<点A>!<分点比例>![角度]<点B>|，不同的是“角度”会将分点位置绕 A 旋转一个角度。将它还可以用最后一行中链式的方法进行连写：
+\subsection{$\lambda$分點與垂線}
+\subsubsection{比例分點}
+分點是幾何中常用的概念，\pkg{calc} 庫支持像 \pkg{xcolor} 混合顏色類似的命令：\verb|<點A>!<分點比例>![角度]<點B>|，不同的是“角度”會將分點位置繞 A 旋轉一個角度。將它還可以用最後一行中鏈式的方法進行連寫：
 \begin{tikzshow}
 \coordinate[label=left:A] (A);
 \coordinate[above right=.5 and 1.5 of A, label=right:B] (B);
@@ -760,8 +760,8 @@ foreach \t in {0, 0.1, ..., 1} {
 \node[draw=black, fill=red!20, circle through=(X)] at ($ (A)!0.5!(B)!{tan(30)}!90:(B) $) {};
 \end{tikzshow}
 
-\subsubsection{距离分点}
-你也可以用（直线段）分点距离代替分点比例，加上单位即可：
+\subsubsection{距離分點}
+你也可以用（直線段）分點距離代替分點比例，加上單位即可：
 \begin{tikzshow}
 \coordinate[label=left:A] (A);
 \coordinate[above right=.5 and 1.5 of A, label=right:B] (B);
@@ -770,8 +770,8 @@ foreach \t in {0, 0.1, ..., 1} {
      edge[dashed] node[above, sloped, font=\footnotesize] {1cm} (C);
 \end{tikzshow}
 
-\subsubsection{投影分点（垂线）}
-用投影点代替分点比例，则得到该点向连线段的投影：
+\subsubsection{投影分點（垂線）}
+用投影點代替分點比例，則得到該點向連線段的投影：
 \begin{tikzshow}
 \coordinate[label=left:A] (A);
 \coordinate[above right=.5 and 2 of A, label=right:B] (B);
@@ -780,9 +780,9 @@ foreach \t in {0, 0.1, ..., 1} {
 \draw[red] (C) -- ($ (A)!(C)!(B) $);
 \end{tikzshow}
 
-\subsection{过某点的圆*}
+\subsection{過某點的圓*}
 \label{subsec:circlethrough}
-使用 \pkg{through} 库可以方便地画出给定圆心和过某点的圆，而不需要做两点距离计算：
+使用 \pkg{through} 庫可以方便地畫出給定圓心和過某點的圓，而不需要做兩點距離計算：
 \begin{tikzshow}[scale=0.6]
 \coordinate[label=below left:A] (A);
 \coordinate[above=1 of A, label=above right:B] (B);
@@ -790,10 +790,10 @@ foreach \t in {0, 0.1, ..., 1} {
 \node[draw, circle through=(B), label=left:C] at (A) {};
 \node[draw, circle through=(A), label=right:D] at (B) {};
 \end{tikzshow}
-注意，\tikzkw{circle through} 仅仅适用于 \tikzkw{node} 命令。
+注意，\tikzkw{circle through} 僅僅適用於 \tikzkw{node} 命令。
 
-\subsection{交点}
-在\secref{subsec:intersection}中已经介绍过交点的使用，包括 \tikzkw{-|} 指令与 \pkg{intersections} 库的一些用法。这里的例子更复杂一些，也复习了之前等分点的用法：
+\subsection{交點}
+在\secref{subsec:intersection}中已經介紹過交點的使用，包括 \tikzkw{-|} 指令與 \pkg{intersections} 庫的一些用法。這裏的例子更復雜一些，也複習了之前等分點的用法：
 \begin{tikzshow}
 \tikzset{small/.style={draw, circle, fill=black, inner sep=1pt}}
 \coordinate[label=left:A] (A);
@@ -808,25 +808,25 @@ foreach \t in {0, 0.1, ..., 1} {
 \foreach \x in {A,C,D,E}
   \node[small] at (\x) {};
 \end{tikzshow}
-注意上例中的 \latexline{path} 命令虽声明了交点，但没有画任何内容。
+注意上例中的 \latexline{path} 命令雖聲明瞭交點，但沒有畫任何內容。
 
-\section{图与网络绘制*}
+\section{圖與網絡繪製*}
 \label{sec:network}
 
-\section{属性}
+\section{屬性}
 \label{sec:tikz-property}
 
-\subsection{线宽}
-\tikzz\ 预定义了 7 种线宽，从细到粗是：\tikzkw{ultra thin}, \tikzkw{very thin}, \tikzkw{thin}, \tikzkw{semithick}, \tikzkw{thick}, \tikzkw{very thick}, \tikzkw{ultra thick}。或者利用 \tikzkw{line width} 选项指定。
+\subsection{線寬}
+\tikzz\ 預定義了 7 種線寬，從細到粗是：\tikzkw{ultra thin}, \tikzkw{very thin}, \tikzkw{thin}, \tikzkw{semithick}, \tikzkw{thick}, \tikzkw{very thick}, \tikzkw{ultra thick}。或者利用 \tikzkw{line width} 選項指定。
 \begin{tikzshow}
 \draw[ultra thin] (0,0) -- (1,0);
 \draw[ultra thick] (1,0) -- (2,0);
 \draw[line width=10pt] (0,1) -- (2,1);
 \end{tikzshow}
-初始线宽是 0.4pt；两个 \tikzkw{ultra} 线宽分别是 0.1pt 与 1.6pt。
+初始線寬是 0.4pt；兩個 \tikzkw{ultra} 線寬分別是 0.1pt 與 1.6pt。
 
-\subsection{线型}
-\tikzz\ 预定义了 4 种基本线型：\tikzkw{dashed}, \tikzkw{dotted}, \tikzkw{dash dot}, \tikzkw{dash dot dot}。它们还可以配合 \tikzkw{loosely} 或者 \tikzkw{densely} 进行微调。
+\subsection{線型}
+\tikzz\ 預定義了 4 種基本線型：\tikzkw{dashed}, \tikzkw{dotted}, \tikzkw{dash dot}, \tikzkw{dash dot dot}。它們還可以配合 \tikzkw{loosely} 或者 \tikzkw{densely} 進行微調。
 \begin{tikzshow}
 \draw[dashed] (0,0) -- (1,0);
 \draw[dotted] (0,-0.5) -- (1,-0.5);
@@ -836,15 +836,15 @@ foreach \t in {0, 0.1, ..., 1} {
 \draw[densely dotted] (0,-2.5) -- (1,-2.5);
 \end{tikzshow}
 
-如果的确需要深度自定义，请使用 \tikzkw{dash pattern} 自定义线型，并可配合 \tikzkw{dash phase} 指定线型的起始位置。
+如果的確需要深度自定義，請使用 \tikzkw{dash pattern} 自定義線型，並可配合 \tikzkw{dash phase} 指定線型的起始位置。
 \begin{tikzshow}
 \draw[dash pattern=on .1cm off .25cm on .25cm off .15cm, dash phase=1cm] (0,0) -- (3,0);
 \end{tikzshow}
 
-有时你可能会看到一些复杂的装饰线（需要 \pkg{decorations} 库），比如：\tikz{\draw [->,decorate,decoration=snake] (0,0) -- (2,0)}。请参考\secref{subsec:deco}。
+有時你可能會看到一些複雜的裝飾線（需要 \pkg{decorations} 庫），比如：\tikz{\draw [->,decorate,decoration=snake] (0,0) -- (2,0)}。請參考\secref{subsec:deco}。
 
-\subsection{线尾（line cap）*}
-如果线宽度较大，不同的线尾 \tikzkw{line cap} 明显对应不同的效果：
+\subsection{線尾（line cap）*}
+如果線寬度較大，不同的線尾 \tikzkw{line cap} 明顯對應不同的效果：
 \begin{tikzshow}[every label/.style={font=\footnotesize}]
 \foreach \offset/\s in {0/rect, .5cm/butt, 1cm/round} {
     \draw[yshift=\offset,line width=5pt, line cap=\s] (0,0) -- (1,0)  node[label=right:\s] {};
@@ -852,39 +852,39 @@ foreach \t in {0, 0.1, ..., 1} {
 }
 \end{tikzshow}
 
-\subsection{线交（line joint）*}
-连续画线时（非连续画线处此选项无效），可以设置 \tikzkw{line joint}：
+\subsection{線交（line joint）*}
+連續畫線時（非連續畫線處此選項無效），可以設置 \tikzkw{line joint}：
 \begin{tikzshow}[every label/.style={font=\footnotesize}]
 \foreach \offset/\s in {0/round, 1.25cm/bevel, 2.5cm/miter} {
     \draw[xshift=\offset,line width=5pt, line join=\s] (0,0) -- (.5,1) node[label=above:\s] {} -- (1,0)  ;
 }
 \end{tikzshow}
-其中 \tikzkw{miter} 线交在锐角时会产生一个非常“尖”的效果，可以设置 \tikzkw{miter limit} 参数来设置一个角度值，使小于该角度的 \tikzkw{miter} 线交自动转变为 \tikzkw{bevel} 形式。
+其中 \tikzkw{miter} 線交在鋭角時會產生一個非常“尖”的效果，可以設置 \tikzkw{miter limit} 參數來設置一個角度值，使小於該角度的 \tikzkw{miter} 線交自動轉變為 \tikzkw{bevel} 形式。
 
-\subsection{箭头}
-\tikzz\ 中的箭头使用的细节多到可以单独开一个章节，但我并不想全部详尽地介绍。用大于或小于号表示箭头的指向，用竖线表示是否加上截断符号。一些基本的样例：
+\subsection{箭頭}
+\tikzz\ 中的箭頭使用的細節多到可以單獨開一個章節，但我並不想全部詳盡地介紹。用大於或小於號表示箭頭的指向，用豎線表示是否加上截斷符號。一些基本的樣例：
 \begin{tikzshow}
 \draw[->|] (1,3) -- (2,3);
 \draw[stealth-] (1,2) -- (2,2);
 \draw[->,>=stealth, line width=3pt] (1,1) arc [start angle=90, end angle=30, radius=1];
 \draw[<->] (.5,4) -- (.5,0) -- (2.5,0);
 \end{tikzshow}
-其中，用 \texttt{>=stealth} 或 \texttt{-stealth} 的方式指定了箭头末端的类型为 \texttt{stealth}。你也可以将它们作为整个 \envi{tikzpicture} 环境的参数进行传递。
+其中，用 \texttt{>=stealth} 或 \texttt{-stealth} 的方式指定了箭頭末端的類型為 \texttt{stealth}。你也可以將它們作為整個 \envi{tikzpicture} 環境的參數進行傳遞。
 
-\tikzz\ 的 \pkg{arrows.meta} 库包含很多箭头，读者可以自行查阅。
+\tikzz\ 的 \pkg{arrows.meta} 庫包含很多箭頭，讀者可以自行查閲。
 
-\subsection{绘制颜色}
-在绘制网格一节，已经使用过 \texttt{lightgray} 作为网格的绘制颜色；当时省略了 \tikzkw{color} 选项。该选项设定\RED{除了 shading 外的所有}颜色，包括绘制、填充等：
+\subsection{繪製顏色}
+在繪製網格一節，已經使用過 \texttt{lightgray} 作為網格的繪製顏色；當時省略了 \tikzkw{color} 選項。該選項設定\RED{除了 shading 外的所有}顏色，包括繪製、填充等：
 \begin{tikzshow}
 \path[draw,fill,red!50] (0,0) -- (1,0) circle[radius=.5];
 \end{tikzshow}
-注意：单独使用 \latexline{draw} 或者 \latexline{fill} 只会执行绘制或填充其一，除非详细指定局部的参数。
+注意：單獨使用 \latexline{draw} 或者 \latexline{fill} 只會執行繪製或填充其一，除非詳細指定局部的參數。
 
-可以使用 \tikzkw{draw} 来单独指定绘制的颜色：
+可以使用 \tikzkw{draw} 來單獨指定繪製的顏色：
 \begin{tikzshow}
 \draw[draw=red!50!white, ultra thick] (0,0) rectangle (1,1);
 \end{tikzshow}
-其中，双感叹号加数字是表示插值比例为 0.5；\pkg{xcolor} 宏包支持该语法。常用的颜色包括：
+其中，雙感嘆號加數字是表示插值比例為 0.5；\pkg{xcolor} 宏包支持該語法。常用的顏色包括：
 \begin{tikzshow}
 \tikzset{every pin/.style={pin distance=.5cm, font=\footnotesize, inner sep=0pt}}
 \draw (0,0) circle[radius=1];
@@ -894,85 +894,85 @@ lime,olive,orange,pink,purple,teal,violet}
 \node[circle,draw=black, fill=\c, pin={[pin edge={draw=\c, thick}] 90-360/19*\i:\c}] at (90-360/19*\i:1cm) {};
 \end{tikzshow}
 
-在 \tikzz\ 环境内部，还可以使用 \latexline{colorlet} 或者 \latexline{definecolor} 自定义颜色（它们实际上是 \TeX\ 指令），例如：
+在 \tikzz\ 環境內部，還可以使用 \latexline{colorlet} 或者 \latexline{definecolor} 自定義顏色（它們實際上是 \TeX\ 指令），例如：
 \begin{latex}
 \colorlet{linecolor}{red!60!black}
 \definecolor{fillcolor}{rgb}{1,0.5,1}
 \end{latex}
 
-\subsection{单色填充}
-填充命令 \latexline{fill} 只能使用于闭合区域，\textbf{且不绘制区域边界}。你可以在一般绘制命令的末尾添加 \tikzkw{cycle} 来创建一个闭合对象：
+\subsection{單色填充}
+填充命令 \latexline{fill} 只能使用於閉合區域，\textbf{且不繪製區域邊界}。你可以在一般繪製命令的末尾添加 \tikzkw{cycle} 來創建一個閉合對象：
 \begin{tikzshow}
 \fill[green] (0,0) -- (1,0) -- (1,1) -- cycle;
 \end{tikzshow}
 
-在填充的同时绘制\footnote{准确地说，\latexline{filldraw} 命令是先绘制再填充。}，使用 \latexline{filldraw} 命令，并分别指定绘制和填充颜色：
+在填充的同時繪製\footnote{準確地説，\latexline{filldraw} 命令是先繪製再填充。}，使用 \latexline{filldraw} 命令，並分別指定繪製和填充顏色：
 \begin{tikzshow}
 \filldraw[draw=black, fill=cyan] (0,0) -- (2,0) arc (0:30:2);
 \end{tikzshow}
-\tikzkw{filldraw} 填充的区域会比用 \tikzkw{fill} 稍大一些，因为前者考虑了线宽。
+\tikzkw{filldraw} 填充的區域會比用 \tikzkw{fill} 稍大一些，因為前者考慮了線寬。
 
-要了解填充的细节，需要介绍两个区域特性：
-\subsubsection{非零区域}
-该特性是默认的区域特性。\tikzz\ 使用计数器的方式来区分路径的内部与外部。对于某点的判断，它会从该点发射一条到无穷远的射线；如果沿途的路径是从左到右（顺时针）地与这条射线相交，那么计数器加一；反之减一。最后计数器如果是零，那么该点在路径外部；否则，它在区域内部。
+要了解填充的細節，需要介紹兩個區域特性：
+\subsubsection{非零區域}
+該特性是默認的區域特性。\tikzz\ 使用計數器的方式來區分路徑的內部與外部。對於某點的判斷，它會從該點發射一條到無窮遠的射線；如果沿途的路徑是從左到右（順時針）地與這條射線相交，那麼計數器加一；反之減一。最後計數器如果是零，那麼該點在路徑外部；否則，它在區域內部。
 
-下例逆时针地绘制了小矩形、顺时针地绘制了完全围住小矩形的大矩形。这样小矩形的内部被识别为“外部”，因此未被填充。
+下例逆時針地繪製了小矩形、順時針地繪製了完全圍住小矩形的大矩形。這樣小矩形的內部被識別為“外部”，因此未被填充。
 \begin{tikzshow}
 \filldraw[fill=blue!50] (0,0) -- (0,.5) -- (1,.5) -- (1,0) -- cycle
   (-.5,-.5) -- (1.5,-.5) -- (1.5,1) -- (-.5,1) -- cycle;
 \end{tikzshow}
 
-\subsubsection{奇偶区域}
-奇偶区域也会发射一条射线，但只要遇到路径就会计数器加一。利用区域的奇偶性填充，使用 \tikzkw{even odd rule}：
+\subsubsection{奇偶區域}
+奇偶區域也會發射一條射線，但只要遇到路徑就會計數器加一。利用區域的奇偶性填充，使用 \tikzkw{even odd rule}：
 \begin{tikzshow}
 \fill[even odd rule, blue] (0,0) -- (2,0.5) -- (1,1) circle (0.25);
 \end{tikzshow}
 
-\subsection{图案与图像填充*}
-在指定了 \tikzkw{pattern} 选项时，它会自动进行填充操作（即使你使用的是 \latexline{draw} 命令）。要使用图案填充，请加载 \pkg{patterns} 库。
+\subsection{圖案與圖像填充*}
+在指定了 \tikzkw{pattern} 選項時，它會自動進行填充操作（即使你使用的是 \latexline{draw} 命令）。要使用圖案填充，請加載 \pkg{patterns} 庫。
 \begin{tikzshow}
 \draw[pattern=dots, pattern color=red] (0,0) rectangle (1,1);
 \end{tikzshow}
 
-图像填充允许你使用外部图像，或者一般的 \tikzz\ 命令。注意配合 \tikzkw{path picture bounding box} 使用。
+圖像填充允許你使用外部圖像，或者一般的 \tikzz\ 命令。注意配合 \tikzkw{path picture bounding box} 使用。
 \begin{tikzshow}
 
 \end{tikzshow}
 
-\subsection{渐变填充*}
-使用 \latexline{shade} 命令控制渐变填充，
+\subsection{漸變填充*}
+使用 \latexline{shade} 命令控制漸變填充，
 
 \subsection{透明度*}
 p169
 
-\subsection{双线*}
-双线选项在某些场合也是实用的。可以用 \tikzkw{double distance} 指定双线内间距（默认 0.6pt），或者用 \tikzkw{double distance between line centers} 指定双线的中心间距。
+\subsection{雙線*}
+雙線選項在某些場合也是實用的。可以用 \tikzkw{double distance} 指定雙線內間距（默認 0.6pt），或者用 \tikzkw{double distance between line centers} 指定雙線的中心間距。
 \begin{tikzshow}
 \draw[double] (0,0) -- (1,1);
 \draw[draw=white, double=cyan] (1,0) -- (0,1);
 \draw[double distance=1pt] (1.2,0) -- (1.2,.5);
 \draw[double distance=1pt,thick] (1.2,.5) -- (1.2,1);
 \end{tikzshow}
-上例的 \tikzkw{draw} 指定为白色，实质创造一种“从上方穿过”的效果。
+上例的 \tikzkw{draw} 指定為白色，實質創造一種“從上方穿過”的效果。
 
-还有一个特殊的双线选项 \tikzkw{double equal sign distance}，可以将双线间距设置成与当前字体的等号（$=$）间距一致。
+還有一個特殊的雙線選項 \tikzkw{double equal sign distance}，可以將雙線間距設置成與當前字體的等號（$=$）間距一致。
 
-\section{样式与高级控制}
-\subsection{样式（style）}
-如果某种属性需要用来反复作图，可以把它自定义为样式：
+\section{樣式與高級控制}
+\subsection{樣式（style）}
+如果某種屬性需要用來反覆作圖，可以把它自定義為樣式：
 
-上文中出现过的 \texttt{help lines}，就是 \tikzz\ 预定义的一种样式。其相当于于：
+上文中出現過的 \texttt{help lines}，就是 \tikzz\ 預定義的一種樣式。其相當於於：
 \begin{latex}
 \begin{tikzpicture}[help lines/.style={line width=0.2pt,gray}]
 ...
 \end{tikzpicture}
 \end{latex}
 
-你也可以在进入 \tikzz\ 环境后（或在文档导言区），使用 \latexline{tikzset} 命令来定义。
+你也可以在進入 \tikzz\ 環境後（或在文檔導言區），使用 \latexline{tikzset} 命令來定義。
 
-\subsection{循环语句（foreach）}
+\subsection{循環語句（foreach）}
 \label{subsec:foreach}
-\tikzz\ 支持循环语句，这一点对于科技绘图来说十分重要。
+\tikzz\ 支持循環語句，這一點對於科技繪圖來説十分重要。
 \begin{tikzshow}[place/.style={circle, draw, fill=black, minimum size=5pt, inner sep=0pt}]
 \foreach \x in {1,2,3} {
     \node at (\x, 0) [place] {};
@@ -980,27 +980,27 @@ p169
 }
 \end{tikzshow}
 
-有时候我们需要循环一个等差数列，这时候使用 \ldots\ 即可。\tikzz\ 会将 \(a,b,\ldots,c\) 识别为从 \(a\) 到 \(c\) 以 \(b-a\) 为公差的等差数列；如果你不指定 \(b\)，那么默认以 \(1\) 为公差。
+有時候我們需要循環一個等差數列，這時候使用 \ldots\ 即可。\tikzz\ 會將 \(a,b,\ldots,c\) 識別為從 \(a\) 到 \(c\) 以 \(b-a\) 為公差的等差數列；如果你不指定 \(b\)，那麼默認以 \(1\) 為公差。
 \begin{tikzshow}[place/.style={circle, draw, fill=black, minimum size=5pt, inner sep=0pt}]
 \foreach \x in {1,1.5,...,3,4} {
     \node at (\x, 0) [place] {};
     \draw (\x, 0) circle [radius=\x/8];
 }
 \end{tikzshow}
-上例中的 \(4\) 不在数列内，这样写是允许的。数列后也可以接另一个数列。
+上例中的 \(4\) 不在數列內，這樣寫是允許的。數列後也可以接另一個數列。
 
-大部分需要知道“循环到列表第几个”的场合，都可以配合移动画笔或相对坐标命令实现：
+大部分需要知道“循環到列表第幾個”的場合，都可以配合移動畫筆或相對座標命令實現：
 \begin{tikzshow}[scale=.5]
 \draw[red] (0,0) grid (3,3);
 \foreach \x/\y in {0,1/2,2}
   \draw (\x, \y) +(.5,.5) circle [radius=.4];
 \end{tikzshow}
-上例同时循环了多个变量，中间用斜线分隔；它们分别按照列表中斜线分隔后的对应值进行循环。如果某一位置的列表提供值的个数小于变量的个数，那么“多出”的变量将都取最后一个值。
+上例同時循環了多個變量，中間用斜線分隔；它們分別按照列表中斜線分隔後的對應值進行循環。如果某一位置的列表提供值的個數小於變量的個數，那麼“多出”的變量將都取最後一個值。
 
-此外，如果 \latexline{foreach} 内部只有一条语句，像上例一样不加花括号也可以。
+此外，如果 \latexline{foreach} 內部只有一條語句，像上例一樣不加花括號也可以。
 
-\subsection{图层*}
-一般情况不会用到此指令。但有时你需要先画完上层的内容才能确定下层元素的尺寸，这时候可能需要图层\cite{tikzmanual}（需要 \pkg{backgrounds} 库）：
+\subsection{圖層*}
+一般情況不會用到此指令。但有時你需要先畫完上層的內容才能確定下層元素的尺寸，這時候可能需要圖層\cite{tikzmanual}（需要 \pkg{backgrounds} 庫）：
 \begin{tikzshow}
 \tikzset{every node/.style={draw,circle,inner sep=.1cm, minimum size=.8cm}}
 \foreach \x/\pos in {{a/(0,0)},{b/(1.5,0)},{c/(1,-1)}}
@@ -1010,26 +1010,26 @@ p169
     \node[draw=none,fill=lightgray, rectangle, fit=(b) (c)] {};
 \end{scope}
 \end{tikzshow}
-上例中还使用了 \pkg{fit} 库，用来创建一个“遮盖”点 b 和点 c 的背景点——这个点的矩形边框被 \tikzkw{fit} 命令处理成图中的大小。
+上例中還使用了 \pkg{fit} 庫，用來創建一個“遮蓋”點 b 和點 c 的背景點——這個點的矩形邊框被 \tikzkw{fit} 命令處理成圖中的大小。
 
-\subsection{装饰*（decorations）}
+\subsection{裝飾*（decorations）}
 \label{subsec:deco}
-最简单的装饰是蛇形线\cite{tikzmanual}，需要 \pkg{decorations.pathmorphing} 库：
+最簡單的裝飾是蛇形線\cite{tikzmanual}，需要 \pkg{decorations.pathmorphing} 庫：
 \begin{tikzshow}
 \draw[->,decorate,decoration=snake] (0,0) -- (2,0);
 \end{tikzshow}
 
-通常，我们希望在线段结束就终止装饰（否则会蛇形绘制到线段末尾，这可能引起困惑）。下面是一个复杂的例子：
+通常，我們希望在線段結束就終止裝飾（否則會蛇形繪製到線段末尾，這可能引起困惑）。下面是一個複雜的例子：
 \begin{tikzshow}
 \draw[->, decorate, decoration={snake,amplitude=.4mm,segment length=4mm,post length=2mm}] (0,0) -- (3,0)
     node[above, align=center, midway, text width=2.5cm, font=\footnotesize] {
         multiline text controlled by \texttt{text width} option of \textcolor{blue}{node}
     };
 \end{tikzshow}
-大部分的参数都比较好理解。\tikzkw{amplitude} 控制波动的强弱，\tikzkw{segment length} 控制一个周期的长度，\tikzkw{post length} 控制在终点之前何处结束装饰。
+大部分的參數都比較好理解。\tikzkw{amplitude} 控制波動的強弱，\tikzkw{segment length} 控制一個週期的長度，\tikzkw{post length} 控制在終點之前何處結束裝飾。
 
-\subsection{随机数*}
-\tikzz\ 使用 \tikzkw{rand} 来生成从 $-1$ 到 $1$ 的随机数（服从均匀分布）；如果使用 \pkg{calc}，你还可以在指定坐标时使用 \texttt{(\$...\$)} 并在其中做坐标计算： 
+\subsection{隨機數*}
+\tikzz\ 使用 \tikzkw{rand} 來生成從 $-1$ 到 $1$ 的隨機數（服從均勻分佈）；如果使用 \pkg{calc}，你還可以在指定座標時使用 \texttt{(\$...\$)} 並在其中做座標計算： 
 \begin{tikzshow}
 \makeatletter\def\pgfcurrentseed{
   \pgfmathparse{\pgfmath@rnd@z}\pgfmathresult
@@ -1039,10 +1039,10 @@ p169
 \coordinate [label=left:$B$] (B) at ($ (0,0) + (rand,rand)$);
 \path (0,0) node[above=1] {\pgfcurrentseed};
 \end{tikzshow}
-上例中在 \TeX\ 底层中使用 pgf 命令从 \latexline{pgfmath@rnd@z} 中读取当前随机数种子的值，并赋给自定义命令。每次使用 \tikzkw{rand} 命令都会改变随机数种子的值。
+上例中在 \TeX\ 底層中使用 pgf 命令從 \latexline{pgfmath@rnd@z} 中讀取當前隨機數種子的值，並賦給自定義命令。每次使用 \tikzkw{rand} 命令都會改變隨機數種子的值。
 
-\subsection{外部数据文件*}
+\subsection{外部數據文件*}
 
-\section{实用范例}
+\section{實用範例}
 \label{sec:tikz-eg}
-本节通过例子的方式，向读者展示 \tikzz\ 的常用情形。
+本節通過例子的方式，向讀者展示 \tikzz\ 的常用情形。
